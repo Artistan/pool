@@ -18,9 +18,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
-                        foreach($country as $xid=>$xname) {
+                        foreach($data as $city=>$xname) {
                             ?>
-                            <li><a href="leagues.php?id=<?=$xid?>"><?=$xname?></a></li>
+                            <li><a href="leagues.php?id=<?=$city?>"><?=$city?></a></li>
                             <?php
                         }
                         ?>
