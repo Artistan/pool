@@ -3,7 +3,7 @@
 */
 
 ;(function($){
-  const MAX_ROUNDS = 100;
+  const MAX_ROUNDS = 500; // kept as a safety cap but no longer enforces automatic blocking
   let state = {
     rounds: 0,
     innings: 0,
@@ -55,7 +55,7 @@
   }
 
   function addRound(){
-    if (state.rounds >= MAX_ROUNDS){ showMessage('Maximum rounds reached'); return; }
+    // do not block rounds by a fixed maximum — rounds continue until matchEnded (rating exceeded)
     if (state.matchEnded){ showMessage('Match already ended'); return; }
     state.rounds += 1;
     const r = state.rounds;
