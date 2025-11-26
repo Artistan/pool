@@ -27,6 +27,8 @@ Add scores and live-updating controls below. The page includes a small JS and CS
       <button id="reset-match" type="button">Reset</button>
    </div>
 
+   <div id="m8-status" role="status" aria-live="polite" class="m8-status" hidden></div>
+
    <table id="m8-score-table">
       <thead>
          <tr>

@@ -10,6 +10,15 @@
     matchEnded: false
   };
 
+  function showMessage(text, timeout = 3000){
+    try{
+      const $el = $('#m8-status');
+      if (!$el.length) return;
+      $el.text(text).removeAttr('hidden');
+      setTimeout(()=>{ $el.attr('hidden',''); }, timeout);
+    }catch(e){ console.warn('showMessage failed', e); }
+  }
+
   function init(){
     console.log('m8-pool-stats init');
     $('#add-round').on('click', addRound);
@@ -22,8 +31,10 @@
     // validate rating bounds on change
     $(document).on('change', '.rating', function(){
       const v = Number($(this).val()||0);
-      if (v < 10) $(this).val(10);
-      if (v > 250) $(this).val(250);
+      let changed = false;
+      if (v < 10){ $(this).val(10); changed = true; }
+      if (v > 250){ $(this).val(250); changed = true; }
+      if (changed) showMessage('Rating clamped to 10–250');
       recalcTotals();
       saveState();
     });
@@ -44,9 +55,9 @@
   }
 
   function addRound(){
-    if (state.rounds >= MAX_ROUNDS) return;
+    if (state.rounds >= MAX_ROUNDS){ showMessage('Maximum rounds reached'); return; }
+    if (state.matchEnded){ showMessage('Match already ended'); return; }
     state.rounds += 1;
-    if (state.matchEnded) return;
     const r = state.rounds;
     // header
     $('#rounds-headers').append(`<span class="round-header">R${r}</span>`);
@@ -56,11 +67,20 @@
       const $cell = $(this).find('.rounds');
       const input = $(`<input type="number" class="round-score" data-round="${r}" data-player="${player}" min="0" max="15" />`);
       input.on('input', onScoreInput);
-      // enforce numeric bounds on blur/input
+      // enforce numeric bounds on change and report when clamped
       input.on('change', function(){
-        let v = Number($(this).val()||0);
-        if (v < 0) v = 0; if (v > 15) v = 15;
+        const raw = $(this).val();
+        let v = Number(raw);
+        if (isNaN(v)){
+          $(this).val('');
+          showMessage('Non-numeric score removed');
+          return;
+        }
+        let clamped = false;
+        if (v < 0){ v = 0; clamped = true; }
+        if (v > 15){ v = 15; clamped = true; }
         $(this).val(v);
+        if (clamped) showMessage('Score clamped to 0–15');
       });
       $cell.append(input);
     });

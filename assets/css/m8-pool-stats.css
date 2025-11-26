@@ -13,3 +13,7 @@
 /* Focus styles for accessibility */
 button:focus, input:focus{ outline: 3px solid #6ca0ff; outline-offset: 2px; }
 
+/* Status message */
+#m8-status.m8-status{ margin-top:8px; padding:8px; border-radius:6px; background:#fff8d6; color:#333; border:1px solid #f0e2a8; }
+#m8-status.m8-status[hidden]{ display:none; }
+
