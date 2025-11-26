@@ -9,3 +9,7 @@
 .controls{ margin-bottom:8px; }
 .round-controls{ margin-top:8px; }
 .innings-row{ margin-top:8px; }
+
+/* Focus styles for accessibility */
+button:focus, input:focus{ outline: 3px solid #6ca0ff; outline-offset: 2px; }
+

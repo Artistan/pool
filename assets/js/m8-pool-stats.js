@@ -6,7 +6,8 @@
   const MAX_ROUNDS = 100;
   let state = {
     rounds: 0,
-    innings: 0
+    innings: 0,
+    matchEnded: false
   };
 
   function init(){
@@ -18,6 +19,14 @@
     $('#reset-match').on('click', resetMatch);
     $(document).on('click', '.safety-incr', onSafetyInc);
     $(document).on('click', '.safety-decr', onSafetyDec);
+    // validate rating bounds on change
+    $(document).on('change', '.rating', function(){
+      const v = Number($(this).val()||0);
+      if (v < 10) $(this).val(10);
+      if (v > 250) $(this).val(250);
+      recalcTotals();
+      saveState();
+    });
     loadState();
     if (state.rounds === 0) addRound();
   }
@@ -37,6 +46,7 @@
   function addRound(){
     if (state.rounds >= MAX_ROUNDS) return;
     state.rounds += 1;
+    if (state.matchEnded) return;
     const r = state.rounds;
     // header
     $('#rounds-headers').append(`<span class="round-header">R${r}</span>`);
@@ -44,8 +54,14 @@
     $('#m8-score-table tbody .player-row').each(function(){
       const player = $(this).data('player');
       const $cell = $(this).find('.rounds');
-      const input = $(`<input type="number" class="round-score" data-round="${r}" data-player="${player}" min="0" />`);
+      const input = $(`<input type="number" class="round-score" data-round="${r}" data-player="${player}" min="0" max="15" />`);
       input.on('input', onScoreInput);
+      // enforce numeric bounds on blur/input
+      input.on('change', function(){
+        let v = Number($(this).val()||0);
+        if (v < 0) v = 0; if (v > 15) v = 15;
+        $(this).val(v);
+      });
       $cell.append(input);
     });
     $('#round-count').text(`Rounds: ${state.rounds}`);
@@ -66,7 +82,7 @@
     // check that every player for this round has a value
     let allFilled = true;
     inputs.each(function(){ if ($(this).val() === '') allFilled = false; });
-    if (allFilled && state.rounds < MAX_ROUNDS){
+    if (allFilled && state.rounds < MAX_ROUNDS && !state.matchEnded){
       // only add one more round and avoid adding multiple times rapidly
       if ($(`.round-score[data-round="${r+1}"]`).length === 0) addRound();
     }
@@ -121,6 +137,10 @@
     if (winner){
       winner.el.addClass('winner');
       winner.el.find('.bonus').text('100');
+      // lock further editing after a winner is decided
+      state.matchEnded = true;
+      $('.round-score').prop('disabled', true);
+      $('#add-round').prop('disabled', true);
     }
     // update finals
     players.forEach(p => {
@@ -143,16 +163,18 @@
     const a = document.createElement('a');
     a.href = url; a.download = 'm8-match.json'; document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(url);
+    try{ alert('Match exported as m8-match.json'); }catch(e){}
   }
 
   function importJSON(){
+    if (!confirm('Importing JSON will replace the current match state. Continue?')) return;
     const input = document.createElement('input');
     input.type = 'file'; input.accept = 'application/json';
     input.onchange = e => {
       const file = e.target.files[0];
       const reader = new FileReader();
       reader.onload = ev => {
-        try{ const data = JSON.parse(ev.target.result); restoreState(data); }
+        try{ const data = JSON.parse(ev.target.result); restoreState(data); alert('Match imported'); }
         catch(err){ alert('Invalid JSON'); }
       };
       reader.readAsText(file);
@@ -177,6 +199,7 @@
     resetMatch(true);
     state.rounds = data.rounds || 0;
     state.innings = data.innings || 0;
+    state.matchEnded = false;
     for (let i=0;i<state.rounds;i++) addRound();
     if (data.players && data.players.length){
       data.players.forEach(p => {
@@ -195,6 +218,13 @@
     }
     $('#inning-count').text(state.innings || 0);
     recalcTotals();
+    // if a winner already exists in imported state, lock UI
+    const players = collectState().players || [];
+    const hasWinner = players.some(p => Number(p.rounds && p.rounds.length && (p.rounds.reduce((a,b)=>a+Number(b||0),0) > Number(p.rating||0))));
+    if (hasWinner){
+      // perform detection to apply bonus and lock
+      detectWinnerAndBonuses();
+    }
     saveState();
   }
 
@@ -219,7 +249,11 @@
       $(this).removeClass('winner');
       $(this).find('.safeties').val('0');
     });
-    state.rounds = 0; state.innings = 0; $('#round-count').text('Rounds: 0'); $('#inning-count').text('0');
+    state.rounds = 0; state.innings = 0; state.matchEnded = false;
+    $('#round-count').text('Rounds: 0'); $('#inning-count').text('0');
+    // re-enable inputs and controls
+    $('.round-score').prop('disabled', false);
+    $('#add-round').prop('disabled', false);
     if (!skipSave) saveState();
   }
 

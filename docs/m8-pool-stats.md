@@ -22,9 +22,9 @@ Add scores and live-updating controls below. The page includes a small JS and CS
 
 <div id="m8-pool-app">
    <div class="controls">
-      <button id="export-json">Export JSON</button>
-      <button id="import-json">Import JSON</button>
-      <button id="reset-match">Reset</button>
+      <button id="export-json" type="button">Export JSON</button>
+      <button id="import-json" type="button">Import JSON</button>
+      <button id="reset-match" type="button">Reset</button>
    </div>
 
    <table id="m8-score-table">
@@ -51,41 +51,41 @@ Add scores and live-updating controls below. The page includes a small JS and CS
       </thead>
       <tbody>
          <tr class="player-row" data-player="1">
-            <td><input type="number" class="team-number" value="1" min="1"></td>
-            <td><input type="number" class="player-number" value="1" min="1"></td>
-            <td><input type="text" class="first-name" value=""></td>
-            <td><input type="text" class="last-name" value=""></td>
-            <td><input type="number" class="rating" value="100" min="10" max="250"></td>
+            <td><input type="number" class="team-number" value="1" min="1" aria-label="Team number player 1"></td>
+            <td><input type="number" class="player-number" value="1" min="1" aria-label="Player number player 1"></td>
+            <td><input type="text" class="first-name" value="" aria-label="First name player 1"></td>
+            <td><input type="text" class="last-name" value="" aria-label="Last name player 1"></td>
+            <td><input type="number" class="rating" value="100" min="10" max="250" aria-label="Rating player 1"></td>
             <td>
-               <button class="safety-decr">-</button>
-               <input type="number" class="safeties" value="0" min="0">
-               <button class="safety-incr">+</button>
+               <button class="safety-decr" type="button" aria-label="Decrease safeties">-</button>
+               <input type="number" class="safeties" value="0" min="0" aria-label="Safeties player 1">
+               <button class="safety-incr" type="button" aria-label="Increase safeties">+</button>
             </td>
             <td class="rounds" data-player="1">
                <!-- round score inputs will be appended here -->
             </td>
-            <td class="total">0</td>
-            <td class="bonus">0</td>
-            <td class="final">0</td>
+            <td class="total"><span class="total-val" aria-live="polite">0</span></td>
+            <td class="bonus"><span class="bonus-val" aria-live="polite">0</span></td>
+            <td class="final"><span class="final-val" aria-live="polite">0</span></td>
          </tr>
 
          <tr class="player-row" data-player="2">
-            <td><input type="number" class="team-number" value="1" min="1"></td>
-            <td><input type="number" class="player-number" value="2" min="1"></td>
-            <td><input type="text" class="first-name" value=""></td>
-            <td><input type="text" class="last-name" value=""></td>
-            <td><input type="number" class="rating" value="100" min="10" max="250"></td>
+            <td><input type="number" class="team-number" value="1" min="1" aria-label="Team number player 2"></td>
+            <td><input type="number" class="player-number" value="2" min="1" aria-label="Player number player 2"></td>
+            <td><input type="text" class="first-name" value="" aria-label="First name player 2"></td>
+            <td><input type="text" class="last-name" value="" aria-label="Last name player 2"></td>
+            <td><input type="number" class="rating" value="100" min="10" max="250" aria-label="Rating player 2"></td>
             <td>
-               <button class="safety-decr">-</button>
-               <input type="number" class="safeties" value="0" min="0">
-               <button class="safety-incr">+</button>
+               <button class="safety-decr" type="button" aria-label="Decrease safeties">-</button>
+               <input type="number" class="safeties" value="0" min="0" aria-label="Safeties player 2">
+               <button class="safety-incr" type="button" aria-label="Increase safeties">+</button>
             </td>
             <td class="rounds" data-player="2">
                <!-- round score inputs will be appended here -->
             </td>
-            <td class="total">0</td>
-            <td class="bonus">0</td>
-            <td class="final">0</td>
+            <td class="total"><span class="total-val" aria-live="polite">0</span></td>
+            <td class="bonus"><span class="bonus-val" aria-live="polite">0</span></td>
+            <td class="final"><span class="final-val" aria-live="polite">0</span></td>
          </tr>
       </tbody>
    </table>
