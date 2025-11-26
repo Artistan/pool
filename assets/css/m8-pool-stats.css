@@ -1,0 +1,11 @@
+/* Basic styles for M8 Pool Stats table */
+#m8-score-table{ width:100%; border-collapse:collapse; margin:12px 0; }
+#m8-score-table th, #m8-score-table td{ border:1px solid #ddd; padding:6px; text-align:left; }
+#m8-score-table thead th{ background:#f7f7f7; }
+#m8-score-table .rounds input.round-score{ width:58px; margin-right:4px; }
+#m8-score-table input[type="number"], #m8-score-table input[type="text"]{ width:80px; }
+.round-header{ display:inline-block; min-width:36px; padding:4px; margin-right:4px; background:#eee; border-radius:4px; }
+.winner{ background:#e6ffe6; }
+.controls{ margin-bottom:8px; }
+.round-controls{ margin-top:8px; }
+.innings-row{ margin-top:8px; }

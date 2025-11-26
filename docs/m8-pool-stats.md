@@ -14,34 +14,98 @@ We will create a score keeping build here for tracking M8 Pool League scores. Th
 
 ## Pool League Scores
 
-use jquery to do the live updates logic for math on the columns and addition of additional columns for rounds. <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+Add scores and live-updating controls below. The page includes a small JS and CSS scaffold and loads jQuery for DOM handling.
 
-create a table here
-1 on 1 players (2 total players) per match
+<link rel="stylesheet" href="/assets/css/m8-pool-stats.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/assets/js/m8-pool-stats.js"></script>
 
-there should be a header row which identifies the information in column.
-there should be a row for each player which starts with player information, these all have html inputs
+<div id="m8-pool-app">
+   <div class="controls">
+      <button id="export-json">Export JSON</button>
+      <button id="import-json">Import JSON</button>
+      <button id="reset-match">Reset</button>
+   </div>
 
-following those columns is the same columns per player to keep track of scores 
-- team #
-- player #
-- first name
-- last name
-- rating - this is an integer from 10 to 250
-- Safeties - this is a counter for tracking number of safties played per player
-- Round Scores - 1 column per round
-   - This can be anywhere from 1 to 100 columns
-   - do not add a column for an additional round until the current round score is logged.
-   - scores is anywhere from 8 - 15 for the winner and 0 - 7 for the looser.
-- a column after the round scores should maintain a total sum of all the round scores
-- when the total sum of the round scores exceeds either player's rating, then the match is done
-   - both players scores exceed the rating at the end of the match, then the winner with the most points for the last round is the winner of the match
-   - otherwise the player that exceeded their rating is the winner of the match- 
-- a column after the total scores will show the bonus for the winner which default to 100 points, 0 points for the loser
-- a column at the end of the table, will be the total points plus bonus for each player
+   <table id="m8-score-table">
+      <thead>
+         <tr>
+            <th>Team #</th>
+            <th>Player #</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Rating</th>
+            <th>Safeties</th>
+            <th class="rounds-header">Rounds</th>
+            <th>Total</th>
+            <th>Bonus</th>
+            <th>Final Points</th>
+         </tr>
+         <tr id="rounds-row">
+            <th colspan="6"></th>
+            <th id="rounds-headers"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr class="player-row" data-player="1">
+            <td><input type="number" class="team-number" value="1" min="1"></td>
+            <td><input type="number" class="player-number" value="1" min="1"></td>
+            <td><input type="text" class="first-name" value=""></td>
+            <td><input type="text" class="last-name" value=""></td>
+            <td><input type="number" class="rating" value="100" min="10" max="250"></td>
+            <td>
+               <button class="safety-decr">-</button>
+               <input type="number" class="safeties" value="0" min="0">
+               <button class="safety-incr">+</button>
+            </td>
+            <td class="rounds" data-player="1">
+               <!-- round score inputs will be appended here -->
+            </td>
+            <td class="total">0</td>
+            <td class="bonus">0</td>
+            <td class="final">0</td>
+         </tr>
 
-there is also a row under these for keeping track of "innings"
-an inning is whenever the home team player (on top) returns to the pool table to shoot again.
+         <tr class="player-row" data-player="2">
+            <td><input type="number" class="team-number" value="1" min="1"></td>
+            <td><input type="number" class="player-number" value="2" min="1"></td>
+            <td><input type="text" class="first-name" value=""></td>
+            <td><input type="text" class="last-name" value=""></td>
+            <td><input type="number" class="rating" value="100" min="10" max="250"></td>
+            <td>
+               <button class="safety-decr">-</button>
+               <input type="number" class="safeties" value="0" min="0">
+               <button class="safety-incr">+</button>
+            </td>
+            <td class="rounds" data-player="2">
+               <!-- round score inputs will be appended here -->
+            </td>
+            <td class="total">0</td>
+            <td class="bonus">0</td>
+            <td class="final">0</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="round-controls">
+      <button id="add-round">Add Round</button>
+      <span id="round-count">Rounds: 0</span>
+   </div>
+
+   <div class="innings-row">
+      <label>Innings:</label>
+      <button id="inning-add">Add Inning</button>
+      <span id="inning-count">0</span>
+   </div>
+</div>
+
+Notes:
+- The table has two player rows (home/top is player 1). Round score inputs will be added dynamically.
+- A new round should only be added after the current round's scores are entered for both players; the JS scaffold handles this behavior.
+
 
 
 - **Last updated:** {{ "now" | date: "%Y-%m-%d %H:%M %Z" }}
