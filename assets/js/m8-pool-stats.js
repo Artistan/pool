@@ -4,6 +4,7 @@
 
 ;(function($){
   const MAX_ROUNDS = 500; // kept as a safety cap but no longer enforces automatic blocking
+    const RESTORE_MAX_ROUNDS = 500; // safety cap when importing/restoring to avoid huge imports
   let state = {
     rounds: 0,
     innings: 0,
@@ -220,6 +221,11 @@
     const targetRounds = Number(data.rounds || 0);
     state.innings = data.innings || 0;
     state.matchEnded = false;
+      // safety: clamp imported rounds to RESTORE_MAX_ROUNDS to avoid freezing the browser
+      if (targetRounds > RESTORE_MAX_ROUNDS){
+        showMessage(`Imported rounds (${targetRounds}) exceed cap; clamping to ${RESTORE_MAX_ROUNDS}`);
+        targetRounds = RESTORE_MAX_ROUNDS;
+      }
     // create rounds safely: reset state.rounds to 0 and add the target number of rounds
     state.rounds = 0;
     for (let i=0; i<targetRounds; i++) addRound();
