@@ -1,3 +1,19 @@
+---
+layout: page
+title: M8 - Checklist
+permalink: /docs/m8-pool-stats-checklist/
+description: Manual accessibility and functional checks for the M8 Pool Stats page.
+tags: 
+  - billiards
+  - scoring
+  - pool
+categories:
+  - billiards
+  - scoring
+  - pool
+collection: docs
+---
+
 # M8 Pool Stats — Accessibility & Test Checklist
 
 This file contains a short manual checklist and edge-case tests to run locally against `docs/m8-pool-stats.md`.
