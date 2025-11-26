@@ -51,7 +51,7 @@ autopages:
     enabled: true
     layouts:
       - collection_index.html
-    permalink: '/collections/:coll/'
+    permalink: '/collections/:name/'
     slugify:
       mode: 'pretty'
       case: true
@@ -92,23 +92,24 @@ sass:
 #  *All described config keys below should be nested under the top-level
 #   `minima` key.*
 # minima:
+  #   Minima skin selection. Available skins are:
+  #     * classic            Default, light color scheme.
+  #     * dark               Dark variant of the classic skin.
+  #     * auto               Adaptive skin based on the classic and dark skins.
+  #     * solarized-light    Light variant of solarized color scheme.
+  #     * solarized-dark     Dark variant of solarized color scheme.
+  #     * solarized          Adaptive skin for solarized color scheme skins.
+  #   skin: auto
+  #
+  #   Specific pages for site navigation.
+  #     If you wish to link only specific pages in the site-navigation, use this
+  #     and list the `path` property (as represented via Liquid) of the pages in
+  #     the order they should be rendered.
+  #   nav_pages:
+  #     - about.md
+  # Use explicit nav_links to avoid duplicates from paginated or auto-generated pages
 minima:
-#   Minima skin selection. Available skins are:
-#     * classic            Default, light color scheme.
-#     * dark               Dark variant of the classic skin.
-#     * auto               Adaptive skin based on the classic and dark skins.
-#     * solarized-light    Light variant of solarized color scheme.
-#     * solarized-dark     Dark variant of solarized color scheme.
-#     * solarized          Adaptive skin for solarized color scheme skins.
-#   skin: auto
   skin: auto
-#
-#   Specific pages for site navigation.
-#     If you wish to link only specific pages in the site-navigation, use this
-#     and list the `path` property (as represented via Liquid) of the pages in
-#     the order they should be rendered.
-#   nav_pages:
-#     - about.md
   nav_pages:
     - posts.md
     - docs.md
@@ -150,12 +151,12 @@ collections:
     name: Documentation
     output: true
     sort_by: date
-    permalink: collection-:title
+    permalink: collection-docs-:title
   posts:
     name: Posts
     output: true
     sort_by: date
-    permalink: collection-:title
+    permalink: collection-posts-:title
 tags:
   pool:
     name: Pool
