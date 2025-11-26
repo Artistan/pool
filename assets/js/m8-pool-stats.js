@@ -217,10 +217,12 @@
     if (!data) return;
     // reset UI
     resetMatch(true);
-    state.rounds = data.rounds || 0;
+    const targetRounds = Number(data.rounds || 0);
     state.innings = data.innings || 0;
     state.matchEnded = false;
-    for (let i=0;i<state.rounds;i++) addRound();
+    // create rounds safely: reset state.rounds to 0 and add the target number of rounds
+    state.rounds = 0;
+    for (let i=0; i<targetRounds; i++) addRound();
     if (data.players && data.players.length){
       data.players.forEach(p => {
         const $row = $(`#m8-score-table tbody .player-row[data-player="${p.player}"]`);
