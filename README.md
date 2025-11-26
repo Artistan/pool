@@ -1,6 +1,6 @@
 TopShots Pool — Jekyll Site
 
-This repository contains a Jekyll site served at https://topshots.me using the Minima theme. Pages are at the repo root with additional docs under /docs.
+This repository contains a Jekyll site served at https://topshots.me using the Minima theme. Pages are at the repo root with additional tools under /tools.
 
 Quick start (local):
 - bundle install

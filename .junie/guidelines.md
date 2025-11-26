@@ -30,12 +30,7 @@ If errors occur, confirm prerequisites per Jekyll Requirements:
 ### Repository layout and Pages deployment options
 Jekyll isolated from app dependencies. Two supported patterns for GitHub Pages:
 
-1) docs/ folder on default branch (simple, plugin-restricted):
-- Place the Jekyll site in `/docs` on the default branch.
-- In GitHub repo settings > Pages, set Source to "Deploy from a branch", Branch: `main` (or default), Folder: `/docs`.
-- Use the GitHub Pages default Jekyll environment (restricted plugin set). Prefer the `github-pages` gem to match Pages runtime.
-
-2) gh-pages branch or Actions workflow (full control):
+1) gh-pages branch or Actions workflow (full control):
 - Build with Actions and publish the HTML output to the `gh-pages` branch (or to the Pages artifact).
 - This allows non-whitelisted plugins/themes. Example minimal steps in Actions:
     - Setup Ruby
@@ -46,7 +41,7 @@ Jekyll isolated from app dependencies. Two supported patterns for GitHub Pages:
 
 Notes:
 - Keep a Gemfile alongside the Jekyll site and pin versions for reproducibility. If using GitHub’s runtime (no custom Actions build), prefer the `github-pages` gem to align with the Pages environment.
-- Do not mix Composer/npm dependencies with the Jekyll Gemfile to avoid cache invalidation noise; isolate under `/docs` or a `/site` subdirectory.
+- Do not mix Composer/npm dependencies with the Jekyll Gemfile to avoid cache invalidation noise; isolate under `/tools` or a `/site` subdirectory.
 - If you include custom plugins, use the Actions-based deployment. GitHub Pages native builds run a safe list only.
 
 ### Local testing commands (inside your Jekyll site dir)

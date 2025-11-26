@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: stats
 title: M8 Pool Stats
-permalink: /docs/m8-pool-stats/
+permalink: /tools/m8-pool-stats/
 description: Interactive score keeping page for M8 Pool League with rounds, totals, and export/import.
 tags:
   - billiards

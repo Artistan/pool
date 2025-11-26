@@ -45,36 +45,6 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 
-autopages:
-  enabled: true
-  collections:
-    enabled: true
-    layouts:
-      - collection_index.html
-    permalink: '/collections/:name/'
-    slugify:
-      mode: 'pretty'
-      case: true
-  tags:
-    enabled: true
-    layouts:
-      - tag_index.html
-    title: '#:tag'
-    permalink: '/tags/:tag/'
-    silent: false
-    slugify:
-      mode: 'pretty'
-      case: true
-  categories:
-    enabled: true
-    layouts:
-      - category_index.html
-    permalink: '/categories/:cat/'
-    slugify:
-      mode: 'pretty'
-      case: true
-
-
 #
 # Uncomment the following setting if you wish to disable deprecation warnings
 #   from newer versions of sass converter. Adapt as required.
@@ -84,7 +54,6 @@ autopages:
 sass:
   quiet_deps: true
   silence_deprecations: [import]
-
 
 # Minima-specific settings (applicable to Minima v3 and above only)
 # -----------------------------------------------------------------
@@ -110,9 +79,6 @@ sass:
   # Use explicit nav_links to avoid duplicates from paginated or auto-generated pages
 minima:
   skin: auto
-  nav_pages:
-    - posts.md
-    - docs.md
 #
 #   Set to `true` to show excerpts on the homepage.
 #   show_excerpts: false
@@ -147,52 +113,32 @@ twitter_username: Artistan
 github_username:  Artistan
 
 collections:
-  docs:
-    name: Documentation
-    output: true
-    sort_by: date
-    permalink: collection-docs-:title
   posts:
     name: Posts
     output: true
     sort_by: date
-    permalink: collection-posts-:title
-tags:
-  pool:
-    name: Pool
-  scoring:
-    name: Scoring
-  billiards:
-    name: Billiards
-categories:
-   pool:
-     name: Pool
-   billiards:
-     name: Billiards
-   scoring:
-     name: Scoring
+    permalink: /:collection/:name
+  tools:
+    name: Tools
+    tools: true
+    output: true
+    permalink: /:collection/:name
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: "pages"
+      type: "tools"
     values:
       layout: "default"
-  -
-    scope:
+  - scope:
       path: ""
-      type: "posts" # previously `page` in Jekyll 2.2.
+      type: "posts"
     values:
-      layout: "post" # overrides previous default layout
-      category: "posts"
-  -
-    scope:
+      layout: "post"
+  - scope:
       path: ""
-      type: "docs" # previously `page` in Jekyll 2.2.
     values:
-      layout: "page" # overrides previous default layout
-      category: "documentation"
+      layout: "default"
 
 # Build settings
 theme: minima
