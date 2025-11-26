@@ -1,6 +1,6 @@
 ---
 layout: page
-title: M8 Pool Stats"
+title: M8 Pool Stats
 permalink: /m8-pool-stats/
 ---
 
