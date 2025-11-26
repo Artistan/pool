@@ -74,3 +74,47 @@ Some docs pages may use jQuery for small interactive behaviors. Recommendations:
 References:
 - GitHub Pages: https://docs.github.com/en/pages
 - Jekyll: https://jekyllrb.com/
+
+---
+
+## Repository-specific notes (this project)
+
+The current repository is a Jekyll site at the repository root, using the Minima theme with a custom domain.
+
+- Layout and content
+  - Site root: Jekyll config is at `/_config.yml`; pages live in root (e.g., `index.markdown`, `about.markdown`). ✓
+  - Docs: Additional long‑form docs live under `/docs` and are published as part of the site build. ✓
+  - Custom domain: `CNAME` is present and should remain committed; ensure GitHub Pages settings use the same domain: `topshots.me`. ✓
+
+- Pages deployment mode
+  - Current Gemfile pins `jekyll ~> 4.4.1` and `minima ~> 2.5`, not the `github-pages` gem. This usually requires a GitHub Actions build (or local build) to avoid plugin/version mismatches with GitHub’s restricted runtime.
+  - Option A — Use GitHub Actions (recommended for full control):
+    - Build Jekyll in CI and publish to Pages artifact or `gh-pages` branch. See steps in the main section above (Ruby setup → bundle install → `bundle exec jekyll build`).
+    - Keep the current Gemfile as‑is.
+  - Option B — Use GitHub Pages native runtime (simpler, plugin‑restricted):
+    - Replace the Jekyll/minima gems with the `github-pages` gem to match GitHub’s environment.
+    - Minimal change: in `Gemfile`, comment out `gem "jekyll"` and add/uncomment `gem "github-pages", group: :jekyll_plugins`, then run `bundle update github-pages`.
+    - In repo settings, set Pages Source to “Deploy from a branch” with the root folder.
+
+- Do not commit build output
+  - `_site/` is already in `.gitignore`, but `_site/` is currently tracked in the repo history. Clean it up:
+    - `git rm -r --cached _site`
+    - Commit and push. CI or GitHub Pages will build the site; built files should not live in the repository.
+
+- Local development (this repo)
+  - Install dependencies: `bundle install` (if Ruby 3.x, also `bundle add webrick`).
+  - Serve locally: `bundle exec jekyll serve --livereload` then open http://localhost:4000
+  - If you switch to `github-pages` gem, re-run `bundle install` and restart.
+
+- Assets and jQuery usage in this repo
+  - Custom JS exists at `assets/js/m8-pool-stats.js` and CSS at `assets/css/m8-pool-stats.css`.
+  - If jQuery is used:
+    - Load scripts with `defer` and after critical HTML to avoid blocking render.
+    - Pin a specific version in your layout, prefer the slim build if AJAX is not used.
+    - If you later load jQuery from a CDN, include an SRI hash and a local fallback for reliability or self‑host the asset to support strict CSP.
+    - Keep event handling modern (`.on()` with proper delegation) and throttle scroll/resize handlers.
+
+- Configuration tips
+  - `_config.yml` sets `url: https://topshots.me`. Keep `baseurl: ""` since the site is served at the domain root via Pages.
+  - Theme: `minima` is fine for both native Pages (with `github-pages`) and Actions builds. If you adopt additional plugins, prefer the Actions build path.
+  - When changing `_config.yml`, remember the Jekyll dev server does not auto‑reload config; restart `bundle exec jekyll serve` after edits.

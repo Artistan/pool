@@ -218,7 +218,7 @@
     if (!data) return;
     // reset UI
     resetMatch(true);
-    const targetRounds = Number(data.rounds || 0);
+    let targetRounds = Number(data.rounds || 0);
     state.innings = data.innings || 0;
     state.matchEnded = false;
     // safety: clamp imported rounds to RESTORE_MAX_ROUNDS to avoid freezing the browser
