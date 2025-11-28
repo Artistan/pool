@@ -36,7 +36,10 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "outputMode": "static"
+            "outputMode": "static",
+            "prerender": {
+              "routes": ["/", "/about", "/contact"]
+            }
           },
           "configurations": {
             "production": {
