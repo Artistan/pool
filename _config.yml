@@ -78,7 +78,7 @@ sass:
   #     - about.md
   # Use explicit nav_links to avoid duplicates from paginated or auto-generated pages
 minima:
-  skin: auto
+  skin: classic
 #
 #   Set to `true` to show excerpts on the homepage.
 #   show_excerpts: false

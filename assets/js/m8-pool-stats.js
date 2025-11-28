@@ -3,7 +3,8 @@
 */
 
 ; (function ($) {
-  const MAX_ROUNDS = 500; // kept as a safety cap but no longer enforces automatic blocking
+  // Hard limit to satisfy UI/UX requirement
+  const MAX_ROUNDS = 100;
   const RESTORE_MAX_ROUNDS = 500; // safety cap when importing/restoring to avoid huge imports
   let state = {
     rounds: 0,
@@ -41,6 +42,7 @@
     });
     loadState();
     if (state.rounds === 0) addRound();
+    saveState();
   }
 
   function onSafetyInc(e) {
@@ -56,16 +58,17 @@
   }
 
   function addRound() {
-    // do not block rounds by a fixed maximum — rounds continue until matchEnded (rating exceeded)
     if (state.matchEnded) { showMessage('Match already ended'); return; }
+    if (state.rounds >= MAX_ROUNDS) { showMessage('Maximum rounds reached'); return; }
     state.rounds += 1;
     const r = state.rounds;
-    // header
-    $('#rounds-headers').append(`<span class="round-header">R${r}</span>`);
-    // add inputs for each player
+    // header: insert a th for this round after the placeholder th.total cell
+    const $totalHead = $(this).find('th.total');
+    for (let i = 0; i < r; i++)
+      $totalHead.before('<th class="round-header">Round ' + r + '</th>');
+    // add inputs for each player as their own column before the Total cell
     $('#m8-score-table tbody .player-row').each(function () {
       const player = $(this).data('player');
-      const $cell = $(this).find('.rounds');
       const input = $(`<input type="number" class="round-score" data-round="${r}" data-player="${player}" min="0" max="15" />`);
       input.on('input', onScoreInput);
       // enforce numeric bounds on change and report when clamped
@@ -83,7 +86,8 @@
         $(this).val(v);
         if (clamped) showMessage('Score clamped to 0–15');
       });
-      $cell.append(input);
+      const $totalCell = $(this).find('td.total');
+      $('<td class="round-col" data-round="${r}"></td>').insertBefore($totalCell).append(input);
     });
     $('#round-count').text(`Rounds: ${state.rounds}`);
     saveState();
@@ -106,16 +110,17 @@
     if (allFilled && state.rounds < MAX_ROUNDS && !state.matchEnded) {
       // only add one more round and avoid adding multiple times rapidly
       if ($(`.round-score[data-round="${r + 1}"]`).length === 0) addRound();
+    } else if (allFilled && state.rounds >= MAX_ROUNDS) {
+      showMessage('Maximum rounds reached');
     }
   }
 
   function recalcTotals() {
     $('#m8-score-table tbody .player-row').each(function () {
       const $row = $(this);
-      const rating = Number($row.find('.rating').val() || 0);
       let sum = 0;
       $row.find('.round-score').each(function () { sum += Number($(this).val() || 0); });
-      $row.find('.total').text(sum);
+      $row.find('.total .total-val').text(sum);
       // determine winner later
     });
     detectWinnerAndBonuses();
@@ -130,12 +135,12 @@
         el: $r,
         player: $r.data('player'),
         rating: Number($r.find('.rating').val() || 0),
-        total: Number($r.find('.total').text() || 0)
+        total: Number($r.find('.total .total-val').text() || 0)
       });
     });
     // clear winner state
     $rows.removeClass('winner');
-    players.forEach(p => p.el.find('.bonus').text('0'));
+    players.forEach(p => p.el.find('.bonus .bonus-val').text('0'));
 
     const exceeded = players.filter(p => p.total > p.rating);
     if (exceeded.length === 0) return;
@@ -157,7 +162,7 @@
     }
     if (winner) {
       winner.el.addClass('winner');
-      winner.el.find('.bonus').text('100');
+      winner.el.find('.bonus .bonus-val').text('100');
       // lock further editing after a winner is decided
       state.matchEnded = true;
       $('.round-score').prop('disabled', true);
@@ -165,9 +170,9 @@
     }
     // update finals
     players.forEach(p => {
-      const bonus = Number(p.el.find('.bonus').text() || 0);
+      const bonus = Number(p.el.find('.bonus .bonus-val').text() || 0);
       const finalPoints = p.total + bonus;
-      p.el.find('.final').text(finalPoints);
+      p.el.find('.final .final-val').text(finalPoints);
     });
   }
 
@@ -248,7 +253,10 @@
     recalcTotals();
     // if a winner already exists in imported state, lock UI
     const players = collectState().players || [];
-    const hasWinner = players.some(p => Number(p.rounds && p.rounds.length && (p.rounds.reduce((a, b) => a + Number(b || 0), 0) > Number(p.rating || 0))));
+    const hasWinner = players.some(p => {
+      const sum = (p.rounds || []).reduce((a, b) => a + Number(b || 0), 0);
+      return sum > Number(p.rating || 0);
+    });
     if (hasWinner) {
       // perform detection to apply bonus and lock
       detectWinnerAndBonuses();
@@ -270,10 +278,19 @@
 
   function resetMatch(skipSave) {
     // clear round headers and inputs
-    $('#rounds-headers').empty();
+    // remove dynamically added round headers, keep placeholder cell
+    $('#rounds-row th.round-header').remove();
     $('#m8-score-table tbody .player-row').each(function () {
-      $(this).find('.rounds').empty();
-      $(this).find('.total, .bonus, .final').text('0');
+      // remove any dynamically added round columns and restore a single placeholder cell if missing
+      $(this).find('td.round-col').remove();
+      // ensure there's exactly one placeholder .rounds cell before totals for structure
+      const $total = $(this).find('td.total');
+      if ($(this).find('td.rounds').length === 0) {
+        $('<td class="rounds" data-player="' + $(this).data('player') + '"></td>').insertBefore($total);
+      }
+      $(this).find('.total .total-val').text('0');
+      $(this).find('.bonus .bonus-val').text('0');
+      $(this).find('.final .final-val').text('0');
       $(this).removeClass('winner');
       $(this).find('.safeties').val('0');
     });

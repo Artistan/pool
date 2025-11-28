@@ -26,7 +26,6 @@ We will create a score keeping build here for tracking M8 Pool League scores. Th
 Add scores and live-updating controls below. The page includes a small JS and CSS scaffold and loads jQuery for DOM handling.
 
 <link rel="stylesheet" href="/assets/css/m8-pool-stats.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/assets/js/m8-pool-stats.js"></script>
 
 <div id="m8-pool-app">
@@ -47,17 +46,10 @@ Add scores and live-updating controls below. The page includes a small JS and CS
             <th>Last</th>
             <th>Rating</th>
             <th>Safeties</th>
-            <th class="rounds-header">Rounds</th>
-            <th>Total</th>
+            <!-- round score inputs will be appended here -->
+            <th class="total">Total</th>
             <th>Bonus</th>
             <th>Final Points</th>
-         </tr>
-         <tr id="rounds-row">
-            <th colspan="6"></th>
-            <th id="rounds-headers"></th>
-            <th></th>
-            <th></th>
-            <th></th>
          </tr>
       </thead>
       <tbody>
@@ -72,9 +64,7 @@ Add scores and live-updating controls below. The page includes a small JS and CS
                <input type="number" class="safeties" value="0" min="0" aria-label="Safeties player 1">
                <button class="safety-incr" type="button" aria-label="Increase safeties">+</button>
             </td>
-            <td class="rounds" data-player="1">
-               <!-- round score inputs will be appended here -->
-            </td>
+            <!-- round score inputs will be appended here -->
             <td class="total"><span class="total-val" aria-live="polite">0</span></td>
             <td class="bonus"><span class="bonus-val" aria-live="polite">0</span></td>
             <td class="final"><span class="final-val" aria-live="polite">0</span></td>
@@ -91,9 +81,7 @@ Add scores and live-updating controls below. The page includes a small JS and CS
                <input type="number" class="safeties" value="0" min="0" aria-label="Safeties player 2">
                <button class="safety-incr" type="button" aria-label="Increase safeties">+</button>
             </td>
-            <td class="rounds" data-player="2">
-               <!-- round score inputs will be appended here -->
-            </td>
+            <!-- round score inputs will be appended here -->
             <td class="total"><span class="total-val" aria-live="polite">0</span></td>
             <td class="bonus"><span class="bonus-val" aria-live="polite">0</span></td>
             <td class="final"><span class="final-val" aria-live="polite">0</span></td>
