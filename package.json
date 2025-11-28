@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:pages-app": "node dist/pages-app/server/server.mjs",
-    "update:pages-app": "ng update @angular/cli @angular/core '@awesome.me/kit-2144818cc7'"
+    "update:pages-app": "ng update @angular/cli @angular/core '@awesome.me/kit-2144818cc7'",
+    "deploy": "ng deploy --base-href=/"
   },
   "private": true,
   "dependencies": {
