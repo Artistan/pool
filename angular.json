@@ -37,9 +37,7 @@
             ],
             "scripts": [],
             "outputMode": "static",
-            "prerender": {
-              "routes": ["/", "/about", "/contact"]
-            }
+            "prerender": true
           },
           "configurations": {
             "production": {
