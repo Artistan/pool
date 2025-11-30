@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "update:pages-app": "ng update @angular/cli @angular/core '@awesome.me/kit-2144818cc7'",
-    "deploy": "ng deploy --base-href=/"
+    "deploy": "ng deploy --cname=topshots.me"
   },
   "private": true,
   "dependencies": {
