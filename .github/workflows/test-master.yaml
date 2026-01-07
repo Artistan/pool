@@ -10,7 +10,7 @@ on:
       - master
 jobs:
   guard-poc:
-    if: !(contains(github.head_ref, '/poc-')) || github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' || !(contains(github.head_ref, '/poc-'))
     name: Test POC
     runs-on: ubuntu-latest
     steps:

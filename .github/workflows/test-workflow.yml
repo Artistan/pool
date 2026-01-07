@@ -10,7 +10,7 @@ on:
       - master
 jobs:
   guard-test:
-    if: !(contains(github.head_ref, 'test-')) || github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' || !(contains(github.head_ref, 'test-'))
     name: Test Master
     runs-on: ubuntu-latest
     steps:
