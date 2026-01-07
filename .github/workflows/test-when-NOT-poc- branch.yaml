@@ -3,14 +3,14 @@ name: PR Test if NOT a POC Branch
 on:
   push:
     branches-ignore:
-      - '**/poc-**' # do not allow poc branches to run this workflow
+      - '**/[Pp][Oo][Cc]-**' # do not allow poc branches to run this workflow
   pull_request:
     types: [opened, reopened]
     branches: # pull request target is master
       - master
 jobs:
   guard-poc:
-    if: github.event_name != 'pull_request' || !(contains(github.head_ref, '/poc-'))
+    if: github.event_name != 'pull_request' || !(contains(github.head_ref, '/[Pp][Oo][Cc]-'))
     name: NOT POC
     runs-on: ubuntu-latest
     steps:
