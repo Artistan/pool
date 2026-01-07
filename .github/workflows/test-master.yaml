@@ -9,8 +9,7 @@ on:
     branches: # pull request target is master
       - master
 jobs:
-  guard:
-    # head_ref is only set for pull_request events - do not allow poc branches to run this workflow
+  guard: # head_ref is only set for pull_request events - do not allow poc branches to run this workflow
     if: !(contains(github.head_ref, '/poc-')) || github.event_name != 'pull_request'
     name: Test Master
     runs-on: ubuntu-latest
