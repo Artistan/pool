@@ -1,20 +1,20 @@
-name: PR Test POC test
+name: PR Test if NOT a POC Branch
 
 on:
   push:
     branches-ignore:
-      - '**test-**' # do not allow poc branches to run this workflow
+      - '**/poc-**' # do not allow poc branches to run this workflow
   pull_request:
     types: [opened, reopened]
     branches: # pull request target is master
       - master
 jobs:
-  guard-test:
-    if: github.event_name != 'pull_request' || !(contains(github.head_ref, 'test-'))
-    name: Test Master
+  guard-poc:
+    if: github.event_name != 'pull_request' || !(contains(github.head_ref, '/poc-'))
+    name: NOT POC
     runs-on: ubuntu-latest
     steps:
-      - name: Check for Test
+      - name: Run this when PR is not a POC branch
         shell: bash
         run: |
           echo "github.head_ref = ${{ github.head_ref }}"
