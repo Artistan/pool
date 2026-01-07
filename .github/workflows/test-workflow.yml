@@ -1,18 +1,20 @@
-name: PR Test Workflow
+name: PR Test for TEST
 
 on:
   push:
     branches-ignore:
-      - test-workflow
+      - '**test-**'
   pull_request:
-    branches: # pull request target is test-workflow
-      - test-workflow
+    types: [opened, reopened]
+    branches: # pull request target is master
+      - master
 jobs:
   guard:
-    name: Test Workflow
+    if: !(contains(github.head_ref, 'test-'))
+    name: Test Master
     runs-on: ubuntu-latest
     steps:
-      - name: Check for Proof of Concept
+      - name: Check for Proof of TEST branch
         shell: bash
         run: |
           echo "github.head_ref = ${{ github.head_ref }}"

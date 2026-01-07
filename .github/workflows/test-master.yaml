@@ -1,14 +1,16 @@
-name: PR Test Master
+name: PR Test POC
 
 on:
   push:
     branches-ignore:
-      - master
+      - '**/poc-**'
   pull_request:
+    types: [opened, reopened]
     branches: # pull request target is master
       - master
 jobs:
   guard:
+    if: !(contains(github.head_ref, '/poc-'))
     name: Test Master
     runs-on: ubuntu-latest
     steps:
