@@ -18,5 +18,9 @@ jobs:
         shell: bash
         run: |
           echo "github.head_ref = ${{ github.head_ref }}"
-          echo "github = ${{ github }}"
+          echo "github.event_name = ${{ github.event_name }}"
+          echo "github.ref = ${{ github.ref }}"
+          echo "github.ref_name = ${{ github.ref_name }}"
+          echo "github.ref = ${{ github.ref }}"
+          echo "github.ref_type = ${{ github.ref_type }}"
           exit 1
