@@ -1,4 +1,4 @@
-name: PR Test
+name: PR Test Master
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - master
 jobs:
   guard:
-    name: POC Merge Guard
+    name: Test Master
     runs-on: ubuntu-latest
     steps:
       - name: Check for Proof of Concept

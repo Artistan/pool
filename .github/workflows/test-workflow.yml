@@ -1,4 +1,4 @@
-name: PR Test
+name: PR Test Workflow
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - test-workflow
 jobs:
   guard:
-    name: POC Merge Guard
+    name: Test Workflow
     runs-on: ubuntu-latest
     steps:
       - name: Check for Proof of Concept
