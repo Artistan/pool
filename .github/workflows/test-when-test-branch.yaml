@@ -10,7 +10,7 @@ on:
       - master
 jobs:
   guard-poc:
-    if: github.event_name != 'pull_request' || (contains(github.head_ref, '/test-'))
+    if: github.event_name == 'push' || (contains(github.head_ref, '/test-'))
     name: IS TEST
     runs-on: ubuntu-latest
     steps:
