@@ -1,20 +1,22 @@
-name: PR Test for TEST
+name: PR Test POC
 
 on:
   push:
     branches-ignore:
-      - '**test-**'
+      - '**test-**' # do not allow poc branches to run this workflow
   pull_request:
     types: [opened, reopened]
     branches: # pull request target is master
       - master
 jobs:
   guard:
-    if: !(contains(github.head_ref, 'test-'))
+    # head_ref is only set for pull_request events
+    # do not allow poc branches to run this workflow
+    if: !(contains(github.head_ref, 'test-')) || github.event_name != 'pull_request'
     name: Test Master
     runs-on: ubuntu-latest
     steps:
-      - name: Check for Proof of TEST branch
+      - name: Check for Proof of Concept
         shell: bash
         run: |
           echo "github.head_ref = ${{ github.head_ref }}"
