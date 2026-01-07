@@ -1,0 +1,20 @@
+name: PR Test
+
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches: # pull request target is master
+      - master
+jobs:
+  guard:
+    name: POC Merge Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Proof of Concept
+        shell: bash
+        run: |
+          echo "github.head_ref = ${{ github.head_ref }}"
+          echo "github = ${{ github }}"
+          exit 1
