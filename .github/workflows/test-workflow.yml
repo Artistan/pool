@@ -1,4 +1,4 @@
-name: PR Test POC
+name: PR Test POC test
 
 on:
   push:
