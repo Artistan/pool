@@ -1,2 +1,5 @@
-angular app
-github pages
+default to these areas where possible:
+
+- angular app
+- github pages
+- typescript
