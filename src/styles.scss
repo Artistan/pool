@@ -1,23 +1,24 @@
 /* ============================================================
-   Century Panthers Football Booster Club — global theme
-   Bootstrap 5 and Font Awesome Free are bundled from npm via
-   angular.json; these styles layer the Panther black & gold
-   brand on top of them.
+   RCHS Panthers Football Booster Club — global theme
+   Navy blue & silver. Bootstrap 5 and Font Awesome Free are
+   bundled from npm via angular.json; these styles layer the
+   Panther brand on top of them.
    ============================================================ */
 
 :root {
-  --panther-black: #0e0e11;
-  --panther-coal: #17171c;
-  --panther-slate: #232329;
-  --panther-gold: #ffb81c;
-  --panther-gold-deep: #d99a00;
-  --panther-white: #f8f7f4;
-  --panther-muted: #9b9aa3;
+  --panther-navy: #0b1f3a;
+  --panther-navy-deep: #081527;
+  --panther-navy-soft: #16304f;
+  --panther-silver: #c3c9d3;
+  --panther-silver-bright: #e2e6ec;
+  --panther-steel: #5b6b84;
+  --panther-white: #f7f8fa;
+  --panther-muted: #9fb0c8;
 }
 
 body {
   background-color: var(--panther-white);
-  color: #1c1c22;
+  color: #1a2333;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -29,17 +30,24 @@ body {
 }
 
 .section-kicker {
-  color: var(--panther-gold-deep);
+  color: var(--panther-steel);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.8rem;
 }
 
+/* silver kicker on dark sections */
+.hero-panther .section-kicker,
+.bg-panther-coal .section-kicker,
+.bg-panther-dark .section-kicker {
+  color: var(--panther-silver);
+}
+
 /* ---------- navbar ---------- */
 .navbar-panther {
-  background-color: var(--panther-black);
-  border-bottom: 3px solid var(--panther-gold);
+  background-color: var(--panther-navy);
+  border-bottom: 3px solid var(--panther-silver);
 }
 
 .navbar-panther .navbar-brand {
@@ -49,23 +57,32 @@ body {
   letter-spacing: 0.05em;
 }
 
-.navbar-panther .navbar-brand .brand-gold {
-  color: var(--panther-gold);
+.navbar-panther .navbar-brand .brand-silver {
+  color: var(--panther-silver);
 }
 
 .navbar-panther .nav-link {
-  color: rgba(248, 247, 244, 0.85);
+  color: rgba(247, 248, 250, 0.85);
   font-weight: 600;
 }
 
 .navbar-panther .nav-link:hover,
 .navbar-panther .nav-link:focus {
-  color: var(--panther-gold);
+  color: var(--panther-silver-bright);
 }
 
 .navbar-panther .nav-link.active {
-  color: var(--panther-gold);
-  border-bottom: 2px solid var(--panther-gold);
+  color: var(--panther-silver-bright);
+  border-bottom: 2px solid var(--panther-silver);
+}
+
+.brand-logo {
+  height: 2.4rem;
+  width: 2.4rem;
+  object-fit: contain;
+  background: #ffffff; /* the logo artwork has a white background; frame it as a badge */
+  border-radius: 50%;
+  padding: 0.15rem;
 }
 
 /* ---------- hero ---------- */
@@ -73,9 +90,9 @@ body {
   position: relative;
   color: var(--panther-white);
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(255, 184, 28, 0.28), transparent 60%),
-    radial-gradient(800px 420px at -10% 110%, rgba(255, 184, 28, 0.16), transparent 55%),
-    linear-gradient(160deg, var(--panther-black) 0%, var(--panther-coal) 55%, var(--panther-slate) 100%);
+    radial-gradient(1100px 500px at 85% -10%, rgba(195, 201, 211, 0.22), transparent 60%),
+    radial-gradient(800px 420px at -10% 110%, rgba(195, 201, 211, 0.12), transparent 55%),
+    linear-gradient(160deg, var(--panther-navy-deep) 0%, var(--panther-navy) 55%, var(--panther-navy-soft) 100%);
   overflow: hidden;
 }
 
@@ -86,8 +103,8 @@ body {
   inset: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(248, 247, 244, 0.05) 0,
-    rgba(248, 247, 244, 0.05) 2px,
+    rgba(247, 248, 250, 0.05) 0,
+    rgba(247, 248, 250, 0.05) 2px,
     transparent 2px,
     transparent 120px
   );
@@ -99,57 +116,101 @@ body {
   z-index: 1;
 }
 
-.text-gold {
-  color: var(--panther-gold) !important;
+.hero-logo {
+  max-width: 100%;
+  width: 20rem;
+  background: #ffffff; /* white badge so the logo's white artwork background reads as intentional */
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 0.75rem 2rem rgba(8, 21, 39, 0.55);
+}
+
+.text-silver {
+  color: var(--panther-silver) !important;
+}
+
+.text-navy {
+  color: var(--panther-navy) !important;
 }
 
 .bg-panther-dark {
-  background-color: var(--panther-black) !important;
+  background-color: var(--panther-navy-deep) !important;
   color: var(--panther-white);
 }
 
 .bg-panther-coal {
-  background-color: var(--panther-coal) !important;
+  background-color: var(--panther-navy) !important;
   color: var(--panther-white);
 }
 
 /* ---------- buttons ---------- */
-.btn-gold {
-  --bs-btn-bg: var(--panther-gold);
-  --bs-btn-border-color: var(--panther-gold);
-  --bs-btn-color: #17130a;
-  --bs-btn-hover-bg: var(--panther-gold-deep);
-  --bs-btn-hover-border-color: var(--panther-gold-deep);
-  --bs-btn-hover-color: #17130a;
-  --bs-btn-active-bg: var(--panther-gold-deep);
-  --bs-btn-active-border-color: var(--panther-gold-deep);
-  --bs-btn-active-color: #17130a;
+.btn-silver {
+  --bs-btn-bg: var(--panther-silver);
+  --bs-btn-border-color: var(--panther-silver);
+  --bs-btn-color: var(--panther-navy-deep);
+  --bs-btn-hover-bg: var(--panther-silver-bright);
+  --bs-btn-hover-border-color: var(--panther-silver-bright);
+  --bs-btn-hover-color: var(--panther-navy-deep);
+  --bs-btn-active-bg: var(--panther-silver-bright);
+  --bs-btn-active-border-color: var(--panther-silver-bright);
+  --bs-btn-active-color: var(--panther-navy-deep);
   font-weight: 700;
 }
 
-.btn-outline-gold {
-  --bs-btn-color: var(--panther-gold);
-  --bs-btn-border-color: var(--panther-gold);
-  --bs-btn-hover-bg: var(--panther-gold);
-  --bs-btn-hover-border-color: var(--panther-gold);
-  --bs-btn-hover-color: #17130a;
-  --bs-btn-active-bg: var(--panther-gold);
-  --bs-btn-active-border-color: var(--panther-gold);
-  --bs-btn-active-color: #17130a;
+.btn-outline-silver {
+  --bs-btn-color: var(--panther-silver);
+  --bs-btn-border-color: var(--panther-silver);
+  --bs-btn-hover-bg: var(--panther-silver);
+  --bs-btn-hover-border-color: var(--panther-silver);
+  --bs-btn-hover-color: var(--panther-navy-deep);
+  --bs-btn-active-bg: var(--panther-silver);
+  --bs-btn-active-border-color: var(--panther-silver);
+  --bs-btn-active-color: var(--panther-navy-deep);
+  font-weight: 700;
+}
+
+.btn-navy {
+  --bs-btn-bg: var(--panther-navy);
+  --bs-btn-border-color: var(--panther-navy);
+  --bs-btn-color: var(--panther-white);
+  --bs-btn-hover-bg: var(--panther-navy-soft);
+  --bs-btn-hover-border-color: var(--panther-navy-soft);
+  --bs-btn-hover-color: var(--panther-white);
+  --bs-btn-active-bg: var(--panther-navy-soft);
+  --bs-btn-active-border-color: var(--panther-navy-soft);
+  --bs-btn-active-color: var(--panther-white);
+  font-weight: 700;
+}
+
+.btn-outline-navy {
+  --bs-btn-color: var(--panther-navy);
+  --bs-btn-border-color: var(--panther-navy);
+  --bs-btn-hover-bg: var(--panther-navy);
+  --bs-btn-hover-border-color: var(--panther-navy);
+  --bs-btn-hover-color: var(--panther-white);
+  --bs-btn-active-bg: var(--panther-navy);
+  --bs-btn-active-border-color: var(--panther-navy);
+  --bs-btn-active-color: var(--panther-white);
   font-weight: 700;
 }
 
 /* ---------- cards & stats ---------- */
 .card-panther {
   border: 0;
-  border-top: 4px solid var(--panther-gold);
-  box-shadow: 0 0.5rem 1.25rem rgba(14, 14, 17, 0.08);
+  border-top: 4px solid var(--panther-navy);
+  box-shadow: 0 0.5rem 1.25rem rgba(11, 31, 58, 0.1);
+}
+
+/* silver top edge for cards sitting on dark sections */
+.bg-panther-coal .card-panther,
+.bg-panther-dark .card-panther {
+  border-top-color: var(--panther-silver);
 }
 
 .stat-number {
   font-size: 2.4rem;
   font-weight: 800;
-  color: var(--panther-gold-deep);
+  color: var(--panther-navy);
   line-height: 1;
 }
 
@@ -160,60 +221,67 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: rgba(255, 184, 28, 0.15);
-  color: var(--panther-gold-deep);
+  background: rgba(11, 31, 58, 0.1);
+  color: var(--panther-navy);
   font-size: 1.25rem;
+}
+
+/* silver icon badges on dark cards */
+.bg-panther-coal .icon-badge,
+.bg-panther-dark .icon-badge {
+  background: rgba(195, 201, 211, 0.16);
+  color: var(--panther-silver);
 }
 
 /* ---------- schedule table ---------- */
 .table-schedule th {
-  background-color: var(--panther-black);
-  color: var(--panther-gold);
+  background-color: var(--panther-navy);
+  color: var(--panther-silver);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.8rem;
 }
 
 .badge-home {
-  background-color: var(--panther-gold);
-  color: #17130a;
+  background-color: var(--panther-navy);
+  color: var(--panther-white);
 }
 
 .badge-away {
-  background-color: var(--panther-slate);
-  color: var(--panther-white);
+  background-color: var(--panther-silver);
+  color: var(--panther-navy-deep);
 }
 
 /* ---------- sponsor tiers ---------- */
 .tier-card {
-  border: 1px solid rgba(14, 14, 17, 0.08);
+  border: 1px solid rgba(11, 31, 58, 0.12);
   border-radius: 0.75rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .tier-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0.75rem 1.5rem rgba(14, 14, 17, 0.12);
+  box-shadow: 0 0.75rem 1.5rem rgba(11, 31, 58, 0.16);
 }
 
 .tier-card.tier-featured {
-  border: 2px solid var(--panther-gold);
+  border: 2px solid var(--panther-navy);
 }
 
 /* ---------- footer ---------- */
 .footer-panther {
-  background-color: var(--panther-black);
+  background-color: var(--panther-navy-deep);
   color: var(--panther-muted);
-  border-top: 3px solid var(--panther-gold);
+  border-top: 3px solid var(--panther-silver);
 }
 
 .footer-panther a {
-  color: rgba(248, 247, 244, 0.85);
+  color: rgba(247, 248, 250, 0.85);
   text-decoration: none;
 }
 
 .footer-panther a:hover {
-  color: var(--panther-gold);
+  color: var(--panther-silver-bright);
 }
 
 .footer-heading {

@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
     <section class="hero-panther py-5">
       <div class="container hero-inner">
         <div class="section-kicker mb-2">Sponsorship</div>
-        <h1 class="display-5 display-font mb-2">Partner with <span class="text-gold">Panther Football</span></h1>
+        <h1 class="display-5 display-font mb-2">Partner with <span class="text-silver">Panther Football</span></h1>
         <p class="lead mb-0">Put your business in front of thousands of Panther fans every Friday night.</p>
       </div>
     </section>
@@ -40,10 +40,10 @@ import { RouterLink } from '@angular/router';
                   </div>
                   <ul class="list-unstyled small">
                     @for (perk of tier.perks; track perk) {
-                      <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>{{ perk }}</li>
+                      <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>{{ perk }}</li>
                     }
                   </ul>
-                  <a routerLink="/contact" class="btn w-100" [class]="tier.featured ? 'btn-gold' : 'btn-outline-gold'">
+                  <a routerLink="/contact" class="btn w-100" [class]="tier.featured ? 'btn-navy' : 'btn-outline-navy'">
                     Become a {{ tier.name }} sponsor
                   </a>
                 </div>
@@ -72,7 +72,7 @@ import { RouterLink } from '@angular/router';
             </div>
           }
         </div>
-        <a routerLink="/contact" class="btn btn-gold btn-lg">
+        <a routerLink="/contact" class="btn btn-silver btn-lg">
           <i class="fa-solid fa-handshake me-2"></i>Request a sponsorship packet
         </a>
       </div>

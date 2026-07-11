@@ -8,7 +8,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Century Panthers Football Boosters';
+  title = 'RCHS Panthers Football Boosters';
   currentYear = new Date().getFullYear();
 
   navLinks = [

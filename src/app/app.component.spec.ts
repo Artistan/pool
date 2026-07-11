@@ -19,7 +19,7 @@ describe('AppComponent', () => {
   it('should have the booster club title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Century Panthers Football Boosters');
+    expect(app.title).toEqual('RCHS Panthers Football Boosters');
   });
 
   it('should render the Panthers brand in the navbar', () => {

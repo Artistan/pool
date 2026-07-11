@@ -8,8 +8,8 @@ import { RouterLink } from '@angular/router';
     <section class="hero-panther py-5">
       <div class="container hero-inner">
         <div class="section-kicker mb-2">Get Involved</div>
-        <h1 class="display-5 display-font mb-2">Join the <span class="text-gold">Panther Family</span></h1>
-        <p class="lead mb-0">Membership, volunteering, and every way to back the black &amp; gold.</p>
+        <h1 class="display-5 display-font mb-2">Join the <span class="text-silver">Panther Family</span></h1>
+        <p class="lead mb-0">Membership, volunteering, and every way to back the navy &amp; silver.</p>
       </div>
     </section>
 
@@ -35,10 +35,10 @@ import { RouterLink } from '@angular/router';
                   <div class="small text-muted mb-3">per season</div>
                   <ul class="list-unstyled small text-start">
                     @for (perk of tier.perks; track perk) {
-                      <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>{{ perk }}</li>
+                      <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>{{ perk }}</li>
                     }
                   </ul>
-                  <a routerLink="/contact" class="btn w-100 mt-2" [class]="tier.featured ? 'btn-gold' : 'btn-outline-gold'">
+                  <a routerLink="/contact" class="btn w-100 mt-2" [class]="tier.featured ? 'btn-navy' : 'btn-outline-navy'">
                     Join as {{ tier.name }}
                   </a>
                 </div>
@@ -71,7 +71,7 @@ import { RouterLink } from '@angular/router';
           }
         </div>
         <div class="text-center mt-5">
-          <a routerLink="/contact" class="btn btn-gold btn-lg">
+          <a routerLink="/contact" class="btn btn-silver btn-lg">
             <i class="fa-solid fa-clipboard-list me-2"></i>Sign up to volunteer
           </a>
         </div>

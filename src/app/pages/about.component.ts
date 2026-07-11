@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
     <section class="hero-panther py-5">
       <div class="container hero-inner">
         <div class="section-kicker mb-2">About the Club</div>
-        <h1 class="display-5 display-font mb-2">Who <span class="text-gold">We Are</span></h1>
+        <h1 class="display-5 display-font mb-2">Who <span class="text-silver">We Are</span></h1>
         <p class="lead mb-0">A volunteer club with one mission: make Panther football the best experience in town.</p>
       </div>
     </section>
@@ -29,14 +29,14 @@ import { RouterLink } from '@angular/router';
               senior scholarships, camps, spirit wear, and the traditions — homecoming,
               senior night, the season banquet — that players remember for the rest of their lives.
             </p>
-            <a routerLink="/get-involved" class="btn btn-gold mt-2">
+            <a routerLink="/get-involved" class="btn btn-navy mt-2">
               <i class="fa-solid fa-user-plus me-2"></i>Become a member
             </a>
           </div>
           <div class="col-lg-6">
             <div class="card card-panther">
               <div class="card-body p-4">
-                <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-users text-gold me-2"></i>Club board</h3>
+                <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-users text-navy me-2"></i>Club board</h3>
                 <p class="small text-muted">
                   The board is elected each spring at our annual meeting. Want to serve? Every
                   position is open to any member — no experience required, just Panther pride.
@@ -68,11 +68,11 @@ import { RouterLink } from '@angular/router';
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
             <p style="color: var(--panther-muted);">
-              We meet the <strong class="text-gold">first Tuesday of every month at 7:00 PM</strong>
+              We meet the <strong class="text-silver">first Tuesday of every month at 7:00 PM</strong>
               in the school commons. Meetings are open to everyone — members vote, but all
               Panther fans are welcome at the table.
             </p>
-            <a routerLink="/contact" class="btn btn-outline-gold">
+            <a routerLink="/contact" class="btn btn-outline-silver">
               <i class="fa-solid fa-envelope me-2"></i>Get meeting reminders
             </a>
           </div>

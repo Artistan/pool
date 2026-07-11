@@ -10,25 +10,26 @@ import { RouterLink } from '@angular/router';
       <div class="container hero-inner py-lg-5">
         <div class="row align-items-center gy-4">
           <div class="col-lg-7">
-            <div class="section-kicker mb-2">Century Panthers Football Booster Club</div>
+            <div class="section-kicker mb-2">RCHS Panthers Football Booster Club</div>
             <h1 class="display-4 display-font mb-3">
-              Friday nights are <span class="text-gold">better together.</span>
+              Friday nights are <span class="text-silver">better together.</span>
             </h1>
             <p class="lead mb-4" style="max-width: 34rem;">
               We're the parents, alumni, and fans behind Panther football — funding equipment,
               feeding players, cheering loudest, and building a program every kid is proud to play for.
             </p>
             <div class="d-flex flex-wrap gap-3">
-              <a routerLink="/get-involved" class="btn btn-gold btn-lg">
+              <a routerLink="/get-involved" class="btn btn-silver btn-lg">
                 <i class="fa-solid fa-user-plus me-2"></i>Join the Club
               </a>
-              <a routerLink="/schedule" class="btn btn-outline-gold btn-lg">
+              <a routerLink="/schedule" class="btn btn-outline-silver btn-lg">
                 <i class="fa-solid fa-calendar-days me-2"></i>Season Schedule
               </a>
             </div>
           </div>
           <div class="col-lg-5 text-center">
-            <i class="fa-solid fa-football text-gold" style="font-size: 11rem; opacity: 0.9;"></i>
+            <img src="panther-logo.png" alt="RCHS Panthers growling panther head logo" class="hero-logo">
+            <div class="display-font h4 mt-3 mb-0">RCHS <span class="text-silver">Panthers</span> Football</div>
           </div>
         </div>
       </div>
@@ -83,18 +84,18 @@ import { RouterLink } from '@angular/router';
               straight back to our players and coaches. However you can help, there's a spot for you.
             </p>
             <ul class="list-unstyled">
-              <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Become a member — memberships start at the price of two game tickets</li>
-              <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Volunteer for concessions, team meals, and game-day operations</li>
-              <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Sponsor the program through your business</li>
+              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Become a member — memberships start at the price of two game tickets</li>
+              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Volunteer for concessions, team meals, and game-day operations</li>
+              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Sponsor the program through your business</li>
             </ul>
-            <a routerLink="/get-involved" class="btn btn-gold mt-2">
+            <a routerLink="/get-involved" class="btn btn-navy mt-2">
               <i class="fa-solid fa-hands-helping me-2"></i>See how to help
             </a>
           </div>
           <div class="col-lg-6">
             <div class="card card-panther">
               <div class="card-body p-4">
-                <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-bullhorn text-gold me-2"></i>Club announcements</h3>
+                <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-bullhorn text-navy me-2"></i>Club announcements</h3>
                 @for (note of announcements; track note.title) {
                   <div class="d-flex gap-3 mb-3">
                     <div class="icon-badge flex-shrink-0"><i [class]="note.icon"></i></div>

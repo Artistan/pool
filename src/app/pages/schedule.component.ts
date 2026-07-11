@@ -17,8 +17,8 @@ interface Game {
     <section class="hero-panther py-5">
       <div class="container hero-inner">
         <div class="section-kicker mb-2">2026 Season</div>
-        <h1 class="display-5 display-font mb-2">Game <span class="text-gold">Schedule</span></h1>
-        <p class="lead mb-0">Pack the stands. Wear the gold.</p>
+        <h1 class="display-5 display-font mb-2">Game <span class="text-silver">Schedule</span></h1>
+        <p class="lead mb-0">Pack the stands. Wear the navy &amp; silver.</p>
       </div>
     </section>
 
@@ -66,7 +66,7 @@ interface Game {
           <div class="col-md-6">
             <div class="card card-panther h-100">
               <div class="card-body">
-                <h2 class="h5 fw-bold"><i class="fa-solid fa-house text-gold me-2"></i>Home game day</h2>
+                <h2 class="h5 fw-bold"><i class="fa-solid fa-house text-navy me-2"></i>Home game day</h2>
                 <p class="small text-muted mb-0">
                   Gates open 90 minutes before kickoff. The booster club runs concessions and the
                   spirit wear table at every home game — stop by and say hi, or better yet,
@@ -78,7 +78,7 @@ interface Game {
           <div class="col-md-6">
             <div class="card card-panther h-100">
               <div class="card-body">
-                <h2 class="h5 fw-bold"><i class="fa-solid fa-bus text-gold me-2"></i>Away game caravans</h2>
+                <h2 class="h5 fw-bold"><i class="fa-solid fa-bus text-navy me-2"></i>Away game caravans</h2>
                 <p class="small text-muted mb-0">
                   Panthers travel well. Watch club announcements for fan bus sign-ups and caravan
                   meet-up times for road games.
