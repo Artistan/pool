@@ -84,7 +84,7 @@ export class GetInvolvedComponent {
     {
       name: 'Fan',
       price: 25,
-      icon: 'fa-solid fa-hand-horns',
+      icon: 'fa-solid fa-hands-clapping',
       featured: false,
       perks: [
         'Club membership & voting rights',
