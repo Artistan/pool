@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The deploy action pushes to gh-pages with its own github_access_token.
+          # Don't let checkout persist the GITHUB_TOKEN as a git credential, or it
+          # conflicts with that push and fails with "git ... exit code 1".
+          persist-credentials: false
       - name: Angular Deploy gh-pages Actions
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         env:
