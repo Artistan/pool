@@ -1,0 +1,103 @@
+name: Branch Classifier (POC)
+
+# Consolidates the previous four probe workflows
+# (test-when-{IS,NOT}-{poc,test}-branch) into a single source of truth.
+#
+# One `classify` job decides — case-insensitively — whether the source
+# branch is a POC branch, a TEST branch, or neither, and exposes that as an
+# output. Downstream jobs gate on it, so exactly one of poc / test / standard
+# runs. This removes the case-sensitivity mismatch and the non-complementary
+# IS/NOT conditions the split workflows suffered from.
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, synchronize] # synchronize => re-run on new commits
+    branches: [master]
+  workflow_dispatch: # allow manual runs for testing
+
+permissions:
+  contents: read
+
+jobs:
+  classify:
+    name: Classify branch
+    runs-on: ubuntu-latest
+    outputs:
+      kind: ${{ steps.detect.outputs.kind }}
+      ref: ${{ steps.detect.outputs.ref }}
+    steps:
+      - name: Detect branch kind (case-insensitive)
+        id: detect
+        shell: bash
+        # Values are passed through env, never interpolated into the script
+        # body, to avoid expression injection from attacker-controlled branch
+        # names.
+        env:
+          # head_ref is set for pull_request events; ref_name for push /
+          # workflow_dispatch. The || picks the first non-empty one.
+          REF: ${{ github.head_ref || github.ref_name }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          ref_lc="${REF,,}" # lowercase for case-insensitive matching
+
+          # Match a `poc-` / `test-` segment either at the start of the branch
+          # name (poc-foo) or after a prefix (owner/poc-foo). The buckets are
+          # mutually exclusive and exhaustive, so IS/NOT can never disagree.
+          if [[ "$ref_lc" == poc-* || "$ref_lc" == */poc-* ]]; then
+            kind=poc
+          elif [[ "$ref_lc" == test-* || "$ref_lc" == */test-* ]]; then
+            kind=test
+          else
+            kind=other
+          fi
+
+          echo "Event: $EVENT"
+          echo "Ref:   $REF"
+          echo "Kind:  $kind"
+
+          {
+            echo "ref=$REF"
+            echo "kind=$kind"
+          } >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### Branch classification"
+            echo ""
+            echo "| Field | Value |"
+            echo "| --- | --- |"
+            echo "| Event | \`$EVENT\` |"
+            echo "| Branch | \`$REF\` |"
+            echo "| Kind | \`$kind\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  poc:
+    name: IS POC
+    needs: classify
+    if: ${{ needs.classify.outputs.kind == 'poc' }}
+    runs-on: ubuntu-latest
+    env:
+      REF: ${{ needs.classify.outputs.ref }}
+    steps:
+      - run: echo "Branch '$REF' IS a POC branch."
+
+  test:
+    name: IS TEST
+    needs: classify
+    if: ${{ needs.classify.outputs.kind == 'test' }}
+    runs-on: ubuntu-latest
+    env:
+      REF: ${{ needs.classify.outputs.ref }}
+    steps:
+      - run: echo "Branch '$REF' IS a TEST branch."
+
+  standard:
+    name: NOT POC / NOT TEST
+    needs: classify
+    if: ${{ needs.classify.outputs.kind == 'other' }}
+    runs-on: ubuntu-latest
+    env:
+      REF: ${{ needs.classify.outputs.ref }}
+    steps:
+      - run: echo "Branch '$REF' is a standard branch (neither POC nor TEST)."
