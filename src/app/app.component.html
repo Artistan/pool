@@ -1,57 +1,78 @@
-<!-- Bootstrap navbar demonstrating Font Awesome icon usage -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Site header -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-panther sticky-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <i class="fa-solid fa-person-swimming"></i>
-      {{ title }}
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <i class="fa-solid fa-football text-gold"></i>
+      Century <span class="brand-gold">Panthers</span>&nbsp;Boosters
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample"
-            aria-controls="navbarsExample" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pantherNav"
+            aria-controls="pantherNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarsExample">
+    <div class="collapse navbar-collapse" id="pantherNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Home</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        @for (link of navLinks; track link.path) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="link.path" routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: link.exact }" ariaCurrentWhenActive="page">{{ link.label }}</a>
+          </li>
+        }
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Simple Bootstrap card with Font Awesome icons -->
-<div class="container py-4">
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <div class="d-flex gap-2 flex-wrap">
-        @for (item of [
-          { break: true, title: 'Installed' },
-          { icon: 'fa-brands fa-bootstrap', class: 'btn btn-primary', title: 'Bootstrap Docs', link: 'https://getbootstrap.com' },
-          { icon: 'fa-sharp-duotone fa-solid fa-icons', class: 'btn btn-primary', title: 'Font Awesome Icons', link: 'https://fontawesome.com/icons' },
-          { break: true, title: 'Angular' },
-          { icon: 'fa-brands fa-angular', class: 'btn btn-primary', title: 'Angular Dev', link: 'https://angular.dev' },
-          { icon: 'fa-brands fa-angular', class: 'btn btn-secondary', title: 'Angular Tutorials', link: 'https://angular.dev/tutorials' },
-          { icon: 'fa-brands fa-angular', class: 'btn btn-info', title: 'Angular CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { icon: 'fa-brands fa-angular', class: 'btn btn-warning', title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { icon: 'fa-brands fa-angular', class: 'btn btn-danger', title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-          { break: true, title: 'Social' },
-          { icon: 'fa-brands fa-github', class: 'btn btn-secondary', title: 'Github - Angular', link: 'https://github.com/angular/angular' },
-          { icon: 'fa-brands fa-twitter', class: 'btn btn-secondary', title: 'Twitter - Angular', link: 'https://twitter.com/angular' },
-          { icon: 'fa-brands fa-youtube', class: 'btn btn-secondary', title: 'Youtube - Angular', link: 'https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw' },
-        ]; track item.title) {
-          @if (item.break) {
-            <h3 class="w-100">{{ item.title }}</h3>
-          } @else {
-            <a [class]="item.class" [href]="item.link" target="_blank" rel="noopener">
-              <i class="{{ item.icon }} me-2"></i>
-              <span>{{ item.title }}</span>
-            </a>
-          }
-        }
-      </div>
+<!-- Routed page content -->
+<main>
+  <router-outlet />
+</main>
 
+<!-- Site footer -->
+<footer class="footer-panther pt-5 pb-4 mt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <i class="fa-solid fa-football text-gold fs-4"></i>
+          <span class="footer-heading fs-6">Century Panthers Football Booster Club</span>
+        </div>
+        <p class="small mb-0">
+          Parents, alumni, and fans working together to support Panther football —
+          on the field, in the classroom, and in our community.
+        </p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading mb-2">Club</div>
+        <ul class="list-unstyled small mb-0">
+          <li><a routerLink="/about">About us</a></li>
+          <li><a routerLink="/get-involved">Membership</a></li>
+          <li><a routerLink="/sponsors">Sponsorship</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="footer-heading mb-2">Football</div>
+        <ul class="list-unstyled small mb-0">
+          <li><a routerLink="/schedule">Season schedule</a></li>
+          <li><a routerLink="/get-involved">Volunteer signup</a></li>
+          <li><a routerLink="/sponsors">Sponsor a game</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading mb-2">Stay in touch</div>
+        <ul class="list-unstyled small mb-2">
+          <li><i class="fa-solid fa-envelope me-2 text-gold"></i>boosters&#64;centurypanthersfootball.org</li>
+        </ul>
+        <div class="d-flex gap-3 fs-5">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <div class="small text-center">
+      &copy; {{ currentYear }} Century Panthers Football Booster Club &middot; Go Panthers! 🐾
     </div>
   </div>
-</div>
-
-<router-outlet />
+</footer>

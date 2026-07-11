@@ -16,16 +16,23 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'pages-app' title`, () => {
+  it('should have the booster club title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('pages-app');
+    expect(app.title).toEqual('Century Panthers Football Boosters');
   });
 
-  it('should render the title in the navbar brand', () => {
+  it('should render the Panthers brand in the navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('pages-app');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Panthers');
+  });
+
+  it('should render all six nav links', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelectorAll('.nav-link').length).toBe(6);
   });
 });

@@ -1,3 +1,224 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   Century Panthers Football Booster Club — global theme
+   Bootstrap 5 is loaded via CDN in index.html; these styles
+   layer the Panther black & gold brand on top of it.
+   ============================================================ */
 
-/* Global styles. Bootstrap is loaded via CDN in index.html to bypass Angular CSS processing. */
+:root {
+  --panther-black: #0e0e11;
+  --panther-coal: #17171c;
+  --panther-slate: #232329;
+  --panther-gold: #ffb81c;
+  --panther-gold-deep: #d99a00;
+  --panther-white: #f8f7f4;
+  --panther-muted: #9b9aa3;
+}
+
+body {
+  background-color: var(--panther-white);
+  color: #1c1c22;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- typography ---------- */
+.display-font {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.section-kicker {
+  color: var(--panther-gold-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+}
+
+/* ---------- navbar ---------- */
+.navbar-panther {
+  background-color: var(--panther-black);
+  border-bottom: 3px solid var(--panther-gold);
+}
+
+.navbar-panther .navbar-brand {
+  color: var(--panther-white);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navbar-panther .navbar-brand .brand-gold {
+  color: var(--panther-gold);
+}
+
+.navbar-panther .nav-link {
+  color: rgba(248, 247, 244, 0.85);
+  font-weight: 600;
+}
+
+.navbar-panther .nav-link:hover,
+.navbar-panther .nav-link:focus {
+  color: var(--panther-gold);
+}
+
+.navbar-panther .nav-link.active {
+  color: var(--panther-gold);
+  border-bottom: 2px solid var(--panther-gold);
+}
+
+/* ---------- hero ---------- */
+.hero-panther {
+  position: relative;
+  color: var(--panther-white);
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(255, 184, 28, 0.28), transparent 60%),
+    radial-gradient(800px 420px at -10% 110%, rgba(255, 184, 28, 0.16), transparent 55%),
+    linear-gradient(160deg, var(--panther-black) 0%, var(--panther-coal) 55%, var(--panther-slate) 100%);
+  overflow: hidden;
+}
+
+.hero-panther::after {
+  /* faint yard lines */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(248, 247, 244, 0.05) 0,
+    rgba(248, 247, 244, 0.05) 2px,
+    transparent 2px,
+    transparent 120px
+  );
+  pointer-events: none;
+}
+
+.hero-panther .hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.text-gold {
+  color: var(--panther-gold) !important;
+}
+
+.bg-panther-dark {
+  background-color: var(--panther-black) !important;
+  color: var(--panther-white);
+}
+
+.bg-panther-coal {
+  background-color: var(--panther-coal) !important;
+  color: var(--panther-white);
+}
+
+/* ---------- buttons ---------- */
+.btn-gold {
+  --bs-btn-bg: var(--panther-gold);
+  --bs-btn-border-color: var(--panther-gold);
+  --bs-btn-color: #17130a;
+  --bs-btn-hover-bg: var(--panther-gold-deep);
+  --bs-btn-hover-border-color: var(--panther-gold-deep);
+  --bs-btn-hover-color: #17130a;
+  --bs-btn-active-bg: var(--panther-gold-deep);
+  --bs-btn-active-border-color: var(--panther-gold-deep);
+  --bs-btn-active-color: #17130a;
+  font-weight: 700;
+}
+
+.btn-outline-gold {
+  --bs-btn-color: var(--panther-gold);
+  --bs-btn-border-color: var(--panther-gold);
+  --bs-btn-hover-bg: var(--panther-gold);
+  --bs-btn-hover-border-color: var(--panther-gold);
+  --bs-btn-hover-color: #17130a;
+  --bs-btn-active-bg: var(--panther-gold);
+  --bs-btn-active-border-color: var(--panther-gold);
+  --bs-btn-active-color: #17130a;
+  font-weight: 700;
+}
+
+/* ---------- cards & stats ---------- */
+.card-panther {
+  border: 0;
+  border-top: 4px solid var(--panther-gold);
+  box-shadow: 0 0.5rem 1.25rem rgba(14, 14, 17, 0.08);
+}
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--panther-gold-deep);
+  line-height: 1;
+}
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255, 184, 28, 0.15);
+  color: var(--panther-gold-deep);
+  font-size: 1.25rem;
+}
+
+/* ---------- schedule table ---------- */
+.table-schedule th {
+  background-color: var(--panther-black);
+  color: var(--panther-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+}
+
+.badge-home {
+  background-color: var(--panther-gold);
+  color: #17130a;
+}
+
+.badge-away {
+  background-color: var(--panther-slate);
+  color: var(--panther-white);
+}
+
+/* ---------- sponsor tiers ---------- */
+.tier-card {
+  border: 1px solid rgba(14, 14, 17, 0.08);
+  border-radius: 0.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(14, 14, 17, 0.12);
+}
+
+.tier-card.tier-featured {
+  border: 2px solid var(--panther-gold);
+}
+
+/* ---------- footer ---------- */
+.footer-panther {
+  background-color: var(--panther-black);
+  color: var(--panther-muted);
+  border-top: 3px solid var(--panther-gold);
+}
+
+.footer-panther a {
+  color: rgba(248, 247, 244, 0.85);
+  text-decoration: none;
+}
+
+.footer-panther a:hover {
+  color: var(--panther-gold);
+}
+
+.footer-heading {
+  color: var(--panther-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}

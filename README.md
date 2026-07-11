@@ -1,59 +1,46 @@
-# PagesApp
+# Century Panthers Football Booster Club — Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+The official site of the Century Panthers High School Football Booster Club,
+built with [Angular](https://angular.dev) 19 + Bootstrap 5 + Font Awesome and
+deployed to GitHub Pages at [topshots.me](https://topshots.me).
 
-## Development server
+## Pages
 
-To start a local development server, run:
+| Route | Purpose |
+| --- | --- |
+| `/` | Home — hero, impact stats, what the club funds, announcements |
+| `/schedule` | Season schedule (placeholder slate until the official one is announced) |
+| `/get-involved` | Membership tiers and volunteer roles |
+| `/sponsors` | Sponsorship tiers and sponsor showcase |
+| `/about` | Mission, board roles, meeting info |
+| `/contact` | Contact channels (update the placeholder emails in `contact.component.ts`) |
 
-```bash
-ng serve
-```
+## Placeholders to customize
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Contact emails** — `src/app/pages/contact.component.ts` and the footer in
+  `src/app/app.component.html` use `…@centurypanthersfootball.org` placeholders.
+- **Schedule** — `src/app/pages/schedule.component.ts` ships a TBA slate.
+- **Social links** — footer + contact page link to `#` until real profiles are added.
+- **Membership/sponsor pricing** — sample tiers in `get-involved.component.ts`
+  and `sponsors.component.ts`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Development
 
 ```bash
-ng build
+npm install     # requires FONTAWESOME_NPM_TOKEN in the environment (see .npmrc)
+npm start       # dev server at http://localhost:4200
+npm test        # unit tests (Karma/Jasmine)
+npm run build   # production build -> dist/pages-app/browser
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Deployment
 
-## Running unit tests
+Pushes to `master` run `.github/workflows/deploy.yml`, which builds the app and
+publishes `dist/pages-app/browser` to the `gh-pages` branch (GitHub Pages serves
+it at topshots.me). The workflow needs:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- A `FONTAWESOME_NPM_TOKEN` repository secret (Actions) for `npm install`.
+- Permission for `github-actions[bot]` to push `gh-pages` — if a branch ruleset
+  protects it, add the bot (or the deploy workflow) to the ruleset's bypass list.
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+`npm run deploy` (angular-cli-ghpages) is available for manual deploys.
