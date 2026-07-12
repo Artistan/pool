@@ -58,9 +58,13 @@ import { CORPORATE_COMPARISON } from '../touchdown-club';
           <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
             <i class="fa-solid fa-handshake me-2"></i>Choose your package
           </a>
-          <p class="small mt-3 mb-0">
+          <p class="small mt-3 mb-1">
             Want category exclusivity and premium activation?
             <a routerLink="/contact" class="fw-semibold">Ask about Panther Platinum Plus</a>.
+          </p>
+          <p class="small mb-0">
+            The Century Panther Touchdown Club is an official 501(c) non-profit organization —
+            opt in at checkout to receive a receipt for your contribution.
           </p>
         </div>
       </div>
