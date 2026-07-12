@@ -15,6 +15,17 @@ export const TOUCHDOWN_CLUB_INTRO =
   'Community Support Tiers. This program allows families, alumni, and community ' +
   "members to directly support the team's needs.";
 
+/**
+ * Corporate sponsorship tiers, matching the club's Zeffy business
+ * sponsorships checkout.
+ */
+export const CORPORATE_SPONSOR_TIERS: { name: string; price: number; icon: string }[] = [
+  { name: 'Panther Bronze', price: 1500, icon: 'fa-solid fa-medal' },
+  { name: 'Panther Silver', price: 2500, icon: 'fa-solid fa-award' },
+  { name: 'Panther Gold', price: 3500, icon: 'fa-solid fa-trophy' },
+  { name: 'Panther Platinum', price: 4000, icon: 'fa-solid fa-gem' },
+];
+
 export const TOUCHDOWN_CLUB_TIERS: SupportTier[] = [
   {
     name: 'Home Field Supporter',

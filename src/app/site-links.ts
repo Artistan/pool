@@ -19,6 +19,10 @@ export const CONTACT_EMAIL = 'centurypantherfootball@gmail.com';
 export const TOUCHDOWN_CLUB_ZEFFY_URL =
   'https://www.zeffy.com/en-US/ticketing/century-panther-football-touchdown-club-tiered-sponsorships?utm_source=centurypantherfootball';
 
+/** Zeffy checkout for corporate/business sponsorships. */
+export const BUSINESS_SPONSORS_ZEFFY_URL =
+  'https://www.zeffy.com/en-US/ticketing/century-panther-football-business-sponsorships?utm_source=centurypantherfootball';
+
 export const OFFICIAL_FOOTBALL_PAGE_URL =
   'https://www.centurypanthers.org/page/show/5060449?subseason=614343&tab=content';
 

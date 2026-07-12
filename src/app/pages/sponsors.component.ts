@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BUSINESS_SPONSORS_ZEFFY_URL } from '../site-links';
 
 @Component({
   selector: 'app-sponsors',
@@ -32,9 +33,14 @@ import { RouterLink } from '@angular/router';
             </div>
           }
         </div>
-        <a routerLink="/contact" class="btn btn-navy btn-lg">
-          <i class="fa-solid fa-handshake me-2"></i>Request a sponsorship packet
-        </a>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
+            <i class="fa-solid fa-handshake me-2"></i>Become a sponsor
+          </a>
+          <a routerLink="/contact" class="btn btn-outline-navy btn-lg">
+            <i class="fa-solid fa-envelope me-2"></i>Request a sponsorship packet
+          </a>
+        </div>
       </div>
     </section>
 
@@ -54,4 +60,6 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
 })
-export class SponsorsComponent {}
+export class SponsorsComponent {
+  businessZeffyUrl = BUSINESS_SPONSORS_ZEFFY_URL;
+}

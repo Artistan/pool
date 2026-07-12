@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DONATE_URL, TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
-import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
+import { BUSINESS_SPONSORS_ZEFFY_URL, DONATE_URL, TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
+import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 
 @Component({
   selector: 'app-get-involved',
@@ -48,6 +48,40 @@ import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
           Tier checkout runs through Zeffy, our secure fundraising platform.
           Questions? <a routerLink="/contact">Contact the club</a>.
         </p>
+      </div>
+    </section>
+
+    <!-- Corporate sponsors -->
+    <section class="py-5 bg-panther-dark">
+      <div class="container text-center">
+        <div class="section-kicker mb-2">Businesses</div>
+        <h2 class="display-font h1 mb-3">Corporate Sponsors</h2>
+        <p class="mx-auto mb-4" style="color: var(--panther-muted); max-width: 44rem;">
+          Put your business behind Panther football with a season sponsorship — stadium
+          visibility, program placement, and a community that shops its sponsors.
+        </p>
+        <div class="row gy-4 justify-content-center mb-4">
+          @for (tier of corporateTiers; track tier.name) {
+            <div class="col-6 col-lg-3">
+              <div class="card card-panther bg-panther-coal h-100 text-center">
+                <div class="card-body p-4">
+                  <div class="icon-badge mx-auto mb-3"><i [class]="tier.icon"></i></div>
+                  <h3 class="h5 fw-bold display-font mb-1">{{ tier.name }}</h3>
+                  <div class="fs-4 fw-bold text-silver">\${{ tier.price.toLocaleString() }}</div>
+                  <div class="small" style="color: var(--panther-muted);">per season</div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-silver btn-lg">
+            <i class="fa-solid fa-handshake me-2"></i>Become a corporate sponsor
+          </a>
+          <a routerLink="/contact" class="btn btn-outline-silver btn-lg">
+            <i class="fa-solid fa-envelope me-2"></i>Ask about benefits
+          </a>
+        </div>
       </div>
     </section>
 
@@ -99,8 +133,10 @@ import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 export class GetInvolvedComponent {
   donateUrl = DONATE_URL;
   zeffyUrl = TOUCHDOWN_CLUB_ZEFFY_URL;
+  businessZeffyUrl = BUSINESS_SPONSORS_ZEFFY_URL;
   touchdownClubIntro = TOUCHDOWN_CLUB_INTRO;
   tiers = TOUCHDOWN_CLUB_TIERS;
+  corporateTiers = CORPORATE_SPONSOR_TIERS;
 
   volunteerRoles = [
     {
