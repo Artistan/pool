@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { CONTACT_EMAIL, DONATE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
+import { CONTACT_EMAIL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,6 @@ import { CONTACT_EMAIL, DONATE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-l
 export class AppComponent {
   title = 'Century Panther Touchdown Club';
   currentYear = new Date().getFullYear();
-  donateUrl = DONATE_URL;
   calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
   contactEmail = CONTACT_EMAIL;
 

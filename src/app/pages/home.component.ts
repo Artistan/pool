@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DONATE_URL } from '../site-links';
 
 @Component({
   selector: 'app-home',
@@ -57,11 +56,11 @@ import { DONATE_URL } from '../site-links';
           <div class="col-lg-9">
             <h2 class="h4 display-font mb-1">Every dollar goes <span class="text-silver">back to the program</span></h2>
             <p class="small mb-0" style="color: var(--panther-muted);">
-              Equipment, team meals, and scholarships — one tap on PayPal and you've backed a Panther.
+              Equipment, team meals, and scholarships — every gift goes straight to the team.
             </p>
           </div>
           <div class="col-lg-3 text-lg-end">
-            <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-silver btn-lg">
+            <a routerLink="/get-involved" class="btn btn-silver btn-lg">
               <i class="fa-solid fa-heart me-2"></i>Donate
             </a>
           </div>
@@ -135,8 +134,6 @@ import { DONATE_URL } from '../site-links';
   `,
 })
 export class HomeComponent {
-  donateUrl = DONATE_URL;
-
   stats = [
     { value: '100+', label: 'Players supported' },
     { value: '50+', label: 'Volunteer families' },
