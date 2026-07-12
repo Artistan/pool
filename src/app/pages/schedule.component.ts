@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { OFFICIAL_FOOTBALL_PAGE_URL, OFFICIAL_SCHEDULE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site-links';
+import { OFFICIAL_FOOTBALL_PAGE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site-links';
 
 @Component({
   selector: 'app-schedule',
@@ -27,9 +27,6 @@ import { OFFICIAL_FOOTBALL_PAGE_URL, OFFICIAL_SCHEDULE_URL, TEAM_CALENDAR_SUBSCR
             </a>
             <a class="btn btn-outline-navy btn-sm" [href]="officialFootballPageUrl" target="_blank" rel="noopener">
               <i class="fa-solid fa-football me-1"></i>RCHS football page
-            </a>
-            <a class="btn btn-outline-navy btn-sm" [href]="officialScheduleUrl" target="_blank" rel="noopener">
-              <i class="fa-solid fa-calendar-days me-1"></i>Athletics schedule
             </a>
           </div>
         </div>
@@ -76,5 +73,4 @@ import { OFFICIAL_FOOTBALL_PAGE_URL, OFFICIAL_SCHEDULE_URL, TEAM_CALENDAR_SUBSCR
 export class ScheduleComponent {
   calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
   officialFootballPageUrl = OFFICIAL_FOOTBALL_PAGE_URL;
-  officialScheduleUrl = OFFICIAL_SCHEDULE_URL;
 }

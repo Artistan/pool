@@ -19,9 +19,6 @@ export const TOUCHDOWN_CLUB_ZEFFY_URL =
 export const OFFICIAL_FOOTBALL_PAGE_URL =
   'https://www.centurypanthers.org/page/show/5060449?subseason=614343&tab=content';
 
-export const OFFICIAL_SCHEDULE_URL =
-  'https://www.centurypanthersathletics.com/sports/boys-football/schedule';
-
 /**
  * "Add to Google Calendar" link for the team calendars — opens Google
  * Calendar and offers to subscribe to all of them.
