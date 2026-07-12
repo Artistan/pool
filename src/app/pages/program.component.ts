@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SponsorsSupportersComponent } from '../components/sponsors-supporters.component';
 import {
   COACHES,
-  FEATURED_SUPPORTERS,
   GAME_EVENTS,
   GAME_INFO,
   PROGRAM_DATA_IS_PLACEHOLDER,
   ROSTER,
-  SUPPORTERS,
 } from '../program-data';
 
 @Component({
   selector: 'app-program',
-  imports: [RouterLink],
+  imports: [RouterLink, SponsorsSupportersComponent],
   template: `
     <section class="hero-panther py-5">
       <div class="container hero-inner">
@@ -124,43 +123,8 @@ import {
       </div>
     </section>
 
-    <!-- Sponsors & supporters -->
-    <section class="py-5 bg-panther-dark">
-      <div class="container text-center">
-        <div class="section-kicker mb-2">They make Friday nights possible</div>
-        <h2 class="display-font h1 mb-4">Sponsors &amp; Supporters</h2>
-
-        <h3 class="h5 fw-bold text-silver mb-3">Business sponsors</h3>
-        <div class="row justify-content-center gy-3 mb-4">
-          @for (slot of [1, 2, 3]; track slot) {
-            <div class="col-6 col-md-3">
-              <div class="border border-secondary rounded-3 py-4 d-flex align-items-center justify-content-center"
-                   style="border-style: dashed !important; color: var(--panther-muted);">
-                <i class="fa-solid fa-store me-2"></i>Your logo here
-              </div>
-            </div>
-          }
-        </div>
-
-        <h3 class="h5 fw-bold text-silver mb-2">Century Champions &amp; Legacy Builders</h3>
-        @for (name of featuredSupporters; track name) {
-          <p class="fs-5 fw-semibold mb-1">{{ name }}</p>
-        }
-        <h3 class="h6 fw-bold text-silver mt-4 mb-2">Prowl Backers</h3>
-        @for (name of supporters; track name) {
-          <p class="small mb-1" style="color: var(--panther-muted);">{{ name }}</p>
-        }
-
-        <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
-          <a routerLink="/get-involved" class="btn btn-silver">
-            <i class="fa-solid fa-heart me-2"></i>Join the Touchdown Club
-          </a>
-          <a routerLink="/sponsors" class="btn btn-outline-silver">
-            <i class="fa-solid fa-handshake me-2"></i>Become a sponsor
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Sponsors & supporters (shared with the Sponsors page) -->
+    <app-sponsors-supporters />
   `,
 })
 export class ProgramComponent {
@@ -169,6 +133,4 @@ export class ProgramComponent {
   events = GAME_EVENTS;
   roster = ROSTER;
   coaches = COACHES;
-  featuredSupporters = FEATURED_SUPPORTERS;
-  supporters = SUPPORTERS;
 }

@@ -83,15 +83,7 @@ export const ROSTER: Player[] = [
   { number: 90, name: 'Player name', position: 'K/P', grade: 'Jr.' },
 ];
 
-/**
- * Touchdown Club supporters receiving Game Day Program recognition
- * (a benefit of the $150+ tiers). Names in the larger-font section are
- * Century Champion and Legacy Builder members.
+/*
+ * Sponsor and supporter recognition is rendered by the shared
+ * SponsorsSupportersComponent (src/app/components/sponsors-supporters.component.ts).
  */
-export const FEATURED_SUPPORTERS: string[] = [
-  'Legacy Builder & Century Champion supporter names will appear here',
-];
-
-export const SUPPORTERS: string[] = [
-  'Prowl Backer supporter names will appear here',
-];

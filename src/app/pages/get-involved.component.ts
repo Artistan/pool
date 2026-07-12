@@ -52,11 +52,11 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
     </section>
 
     <!-- Corporate sponsors -->
-    <section class="py-5 bg-panther-dark">
+    <section class="py-5 bg-panther-silver">
       <div class="container text-center">
         <div class="section-kicker mb-2">Businesses</div>
         <h2 class="display-font h1 mb-3">Corporate Sponsors</h2>
-        <p class="mx-auto mb-4" style="color: var(--panther-muted); max-width: 44rem;">
+        <p class="mx-auto mb-4" style="max-width: 44rem;">
           Put your business behind Panther football with a season sponsorship — stadium
           visibility, program placement, and a community that shops its sponsors.
         </p>
@@ -75,10 +75,10 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
           }
         </div>
         <div class="d-flex flex-wrap gap-2 justify-content-center">
-          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-silver btn-lg">
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
             <i class="fa-solid fa-handshake me-2"></i>Become a corporate sponsor
           </a>
-          <a routerLink="/contact" class="btn btn-outline-silver btn-lg">
+          <a routerLink="/contact" class="btn btn-outline-navy btn-lg">
             <i class="fa-solid fa-envelope me-2"></i>Ask about benefits
           </a>
         </div>
