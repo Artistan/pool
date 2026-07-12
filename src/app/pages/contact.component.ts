@@ -41,7 +41,7 @@ import { CONTACT_EMAIL } from '../site-links';
                   and volunteer sign-ups at every home game.
                 </p>
                 <p class="small text-muted mb-0">
-                  Or join the monthly meeting: <strong>first Tuesday, 7:00 PM, school commons.</strong>
+                  Or join the monthly meeting: <strong>third Tuesday, 7:00 PM, RCHS Library.</strong>
                 </p>
               </div>
             </div>

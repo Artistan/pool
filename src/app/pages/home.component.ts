@@ -168,7 +168,7 @@ export class HomeComponent {
     {
       icon: 'fa-solid fa-calendar-check',
       title: 'Monthly club meeting',
-      text: 'First Tuesday of each month, 7:00 PM in the school commons — everyone welcome.',
+      text: 'Third Tuesday of each month, 7:00 PM in the RCHS Library — everyone welcome.',
     },
     {
       icon: 'fa-solid fa-shirt',

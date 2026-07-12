@@ -69,8 +69,8 @@ import { BOARD_MEMBERS } from '../club-board';
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
             <p style="color: var(--panther-muted);">
-              We meet the <strong class="text-silver">first Tuesday of every month at 7:00 PM</strong>
-              in the school commons. Meetings are open to everyone — members vote, but all
+              We meet the <strong class="text-silver">third Tuesday of every month at 7:00 PM</strong>
+              in the RCHS Library. Meetings are open to everyone — members vote, but all
               Panther fans are welcome at the table.
             </p>
             <a routerLink="/contact" class="btn btn-outline-silver">
