@@ -29,10 +29,10 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Touchdown');
   });
 
-  it('should render all six nav links', () => {
+  it('should render all seven nav links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelectorAll('.nav-link').length).toBe(6);
+    expect(compiled.querySelectorAll('.nav-link').length).toBe(7);
   });
 });

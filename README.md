@@ -10,7 +10,8 @@ deployed to GitHub Pages at [topshots.me](https://topshots.me).
 | Route | Purpose |
 | --- | --- |
 | `/` | Home — hero, impact stats, what the club funds, announcements |
-| `/schedule` | Season schedule (placeholder slate until the official one is announced) |
+| `/schedule` | Live team Google Calendar embed + subscribe link |
+| `/program` | Game Day Program — roster, coaches, game theme/events, sponsor recognition (edit `src/app/program-data.ts` weekly) |
 | `/get-involved` | Membership tiers and volunteer roles |
 | `/sponsors` | Sponsorship tiers and sponsor showcase |
 | `/about` | Mission, board roles, meeting info |

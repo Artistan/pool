@@ -17,6 +17,7 @@ export class AppComponent {
   navLinks = [
     { path: '/', label: 'Home', exact: true },
     { path: '/schedule', label: 'Schedule', exact: false },
+    { path: '/program', label: 'Program', exact: false },
     { path: '/get-involved', label: 'Get Involved', exact: false },
     { path: '/sponsors', label: 'Sponsors', exact: false },
     { path: '/about', label: 'About', exact: false },
