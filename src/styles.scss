@@ -16,6 +16,11 @@
   --panther-muted: #9fb0c8;
 }
 
+html {
+  /* keep anchor-scroll targets clear of the sticky navbar */
+  scroll-padding-top: 5rem;
+}
+
 body {
   background-color: var(--panther-white);
   color: #1a2333;
