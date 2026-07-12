@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DONATE_URL } from '../site-links';
 
 @Component({
   selector: 'app-get-involved',
@@ -77,9 +78,26 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
     </section>
+
+    <!-- Donate -->
+    <section class="py-5">
+      <div class="container text-center">
+        <div class="section-kicker mb-2">Prefer to give directly?</div>
+        <h2 class="display-font h1 mb-3">Donate to the club</h2>
+        <p class="text-muted mx-auto mb-4" style="max-width: 40rem;">
+          No time for shifts or meetings? A one-time donation through PayPal goes straight
+          to equipment, team meals, and scholarships for Panther players.
+        </p>
+        <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
+          <i class="fa-solid fa-heart me-2"></i>Donate with PayPal
+        </a>
+      </div>
+    </section>
   `,
 })
 export class GetInvolvedComponent {
+  donateUrl = DONATE_URL;
+
   tiers = [
     {
       name: 'Fan',

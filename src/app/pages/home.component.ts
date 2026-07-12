@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DONATE_URL } from '../site-links';
 
 @Component({
   selector: 'app-home',
@@ -45,6 +46,25 @@ import { RouterLink } from '@angular/router';
               <div class="text-uppercase small fw-semibold text-muted mt-1">{{ stat.label }}</div>
             </div>
           }
+        </div>
+      </div>
+    </section>
+
+    <!-- Donate band -->
+    <section class="py-4 bg-panther-dark">
+      <div class="container">
+        <div class="row align-items-center gy-3 text-center text-lg-start">
+          <div class="col-lg-9">
+            <h2 class="h4 display-font mb-1">Every dollar goes <span class="text-silver">back to the program</span></h2>
+            <p class="small mb-0" style="color: var(--panther-muted);">
+              Equipment, team meals, and scholarships — one tap on PayPal and you've backed a Panther.
+            </p>
+          </div>
+          <div class="col-lg-3 text-lg-end">
+            <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-silver btn-lg">
+              <i class="fa-solid fa-heart me-2"></i>Donate
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -115,6 +135,8 @@ import { RouterLink } from '@angular/router';
   `,
 })
 export class HomeComponent {
+  donateUrl = DONATE_URL;
+
   stats = [
     { value: '100+', label: 'Players supported' },
     { value: '50+', label: 'Volunteer families' },

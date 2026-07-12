@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { DONATE_URL } from './site-links';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'RCHS Panthers Football Boosters';
   currentYear = new Date().getFullYear();
+  donateUrl = DONATE_URL;
 
   navLinks = [
     { path: '/', label: 'Home', exact: true },
