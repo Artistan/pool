@@ -12,6 +12,10 @@ export const DONATE_URL =
 /** The booster club's email for all inquiries. */
 export const CONTACT_EMAIL = 'centurypantherfootball@gmail.com';
 
+/** Zeffy checkout for the Touchdown Club support tiers (from the flyer's QR code). */
+export const TOUCHDOWN_CLUB_ZEFFY_URL =
+  'https://www.zeffy.com/en-US/ticketing/century-panther-football-touchdown-club-tiered-sponsorships';
+
 export const OFFICIAL_FOOTBALL_PAGE_URL =
   'https://www.centurypanthers.org/page/show/5060449?subseason=614343&tab=content';
 

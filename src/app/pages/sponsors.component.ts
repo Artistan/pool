@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DONATE_URL } from '../site-links';
+import { TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
 import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 
 @Component({
@@ -35,8 +35,8 @@ import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
                       <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>{{ perk }}</li>
                     }
                   </ul>
-                  <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-navy w-100 mt-2">
-                    Give \${{ tier.price }} on PayPal
+                  <a [href]="zeffyUrl" target="_blank" rel="noopener" class="btn btn-navy w-100 mt-2">
+                    Join for \${{ tier.price }}
                   </a>
                 </div>
               </div>
@@ -44,8 +44,8 @@ import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
           }
         </div>
         <p class="small text-muted text-center mt-4 mb-0">
-          After giving, <a routerLink="/contact">send us your name and tier</a> so we can get your
-          recognition, gear, and tickets headed your way.
+          Tier checkout runs through Zeffy, our secure fundraising platform.
+          Questions? <a routerLink="/contact">Contact the club</a>.
         </p>
       </div>
     </section>
@@ -77,7 +77,7 @@ import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
   `,
 })
 export class SponsorsComponent {
-  donateUrl = DONATE_URL;
+  zeffyUrl = TOUCHDOWN_CLUB_ZEFFY_URL;
   touchdownClubIntro = TOUCHDOWN_CLUB_INTRO;
   tiers = TOUCHDOWN_CLUB_TIERS;
 }
