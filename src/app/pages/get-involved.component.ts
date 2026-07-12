@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DONATE_URL } from '../site-links';
+import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 
 @Component({
   selector: 'app-get-involved',
@@ -14,39 +15,39 @@ import { DONATE_URL } from '../site-links';
       </div>
     </section>
 
-    <!-- Membership tiers -->
+    <!-- Touchdown Club support tiers -->
     <section class="py-5">
       <div class="container">
         <div class="text-center mb-5">
-          <div class="section-kicker mb-2">Annual membership</div>
-          <h2 class="display-font h1">Pick your level</h2>
-          <p class="text-muted">Every membership includes voting rights at club meetings and our undying gratitude.</p>
+          <div class="section-kicker mb-2">Touchdown Club</div>
+          <h2 class="display-font h1">Panthers Community Support Tiers</h2>
+          <p class="text-muted mx-auto" style="max-width: 46rem;">{{ touchdownClubIntro }}</p>
         </div>
         <div class="row gy-4 justify-content-center">
           @for (tier of tiers; track tier.name) {
-            <div class="col-md-6 col-lg-4">
-              <div class="card tier-card h-100 text-center" [class.tier-featured]="tier.featured">
-                <div class="card-body p-4">
-                  @if (tier.featured) {
-                    <span class="badge badge-home text-uppercase mb-2">Most popular</span>
-                  }
+            <div class="col-md-6 col-lg-3">
+              <div class="card tier-card h-100 text-center">
+                <div class="card-body p-4 d-flex flex-column">
                   <div class="icon-badge mx-auto mb-3"><i [class]="tier.icon"></i></div>
-                  <h3 class="h4 fw-bold display-font">{{ tier.name }}</h3>
+                  <h3 class="h5 fw-bold display-font">{{ tier.name }}</h3>
                   <div class="display-6 fw-bold my-2">\${{ tier.price }}</div>
-                  <div class="small text-muted mb-3">per season</div>
-                  <ul class="list-unstyled small text-start">
+                  <ul class="list-unstyled small text-start flex-grow-1">
                     @for (perk of tier.perks; track perk) {
                       <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>{{ perk }}</li>
                     }
                   </ul>
-                  <a routerLink="/contact" class="btn w-100 mt-2" [class]="tier.featured ? 'btn-navy' : 'btn-outline-navy'">
-                    Join as {{ tier.name }}
+                  <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-navy w-100 mt-2">
+                    Give \${{ tier.price }} on PayPal
                   </a>
                 </div>
               </div>
             </div>
           }
         </div>
+        <p class="small text-muted text-center mt-4 mb-0">
+          After giving, <a routerLink="/contact">send us your name and tier</a> so we can get your
+          recognition, gear, and tickets headed your way.
+        </p>
       </div>
     </section>
 
@@ -97,44 +98,8 @@ import { DONATE_URL } from '../site-links';
 })
 export class GetInvolvedComponent {
   donateUrl = DONATE_URL;
-
-  tiers = [
-    {
-      name: 'Fan',
-      price: 25,
-      icon: 'fa-solid fa-hands-clapping',
-      featured: false,
-      perks: [
-        'Club membership & voting rights',
-        'Booster club window decal',
-        'Email newsletter all season',
-      ],
-    },
-    {
-      name: 'Family',
-      price: 60,
-      icon: 'fa-solid fa-people-roof',
-      featured: true,
-      perks: [
-        'Everything in Fan — for the whole household',
-        'Two Panther spirit wear items',
-        'Reserved booster seating at Senior Night',
-        'Discounted banquet tickets',
-      ],
-    },
-    {
-      name: 'Legend',
-      price: 150,
-      icon: 'fa-solid fa-crown',
-      featured: false,
-      perks: [
-        'Everything in Family',
-        'Name listed on the season program',
-        'Legend recognition at homecoming',
-        'First pick of volunteer shifts (yes, really)',
-      ],
-    },
-  ];
+  touchdownClubIntro = TOUCHDOWN_CLUB_INTRO;
+  tiers = TOUCHDOWN_CLUB_TIERS;
 
   volunteerRoles = [
     {

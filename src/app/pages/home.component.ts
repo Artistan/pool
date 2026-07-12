@@ -104,7 +104,7 @@ import { DONATE_URL } from '../site-links';
               straight back to our players and coaches. However you can help, there's a spot for you.
             </p>
             <ul class="list-unstyled">
-              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Become a member — memberships start at the price of two game tickets</li>
+              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Join the Touchdown Club — support tiers start at $50</li>
               <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Volunteer for concessions, team meals, and game-day operations</li>
               <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Sponsor the program through your business</li>
             </ul>

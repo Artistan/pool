@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DONATE_URL } from '../site-links';
+import { TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 
 @Component({
   selector: 'app-sponsors',
@@ -9,58 +11,53 @@ import { RouterLink } from '@angular/router';
       <div class="container hero-inner">
         <div class="section-kicker mb-2">Sponsorship</div>
         <h1 class="display-5 display-font mb-2">Partner with <span class="text-silver">Panther Football</span></h1>
-        <p class="lead mb-0">Put your business in front of thousands of Panther fans every Friday night.</p>
+        <p class="lead mb-0">Back the team through the Touchdown Club — or build a custom business sponsorship.</p>
       </div>
     </section>
 
     <section class="py-5">
       <div class="container">
         <div class="text-center mb-5">
-          <div class="section-kicker mb-2">Sponsorship tiers</div>
-          <h2 class="display-font h1">Choose your impact</h2>
-          <p class="text-muted mx-auto" style="max-width: 42rem;">
-            Sponsorships fund equipment, team meals, and scholarships — and every tier comes with
-            real visibility for your business in the Panther community.
-          </p>
+          <div class="section-kicker mb-2">Touchdown Club</div>
+          <h2 class="display-font h1">Panthers Community Support Tiers</h2>
+          <p class="text-muted mx-auto" style="max-width: 46rem;">{{ touchdownClubIntro }}</p>
         </div>
         <div class="row gy-4 justify-content-center">
           @for (tier of tiers; track tier.name) {
-            <div class="col-md-6 col-lg-4">
-              <div class="card tier-card h-100" [class.tier-featured]="tier.featured">
-                <div class="card-body p-4">
-                  @if (tier.featured) {
-                    <span class="badge badge-home text-uppercase mb-2">Best value</span>
-                  }
-                  <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="icon-badge"><i [class]="tier.icon"></i></div>
-                    <div>
-                      <h3 class="h5 fw-bold display-font mb-0">{{ tier.name }}</h3>
-                      <div class="fw-bold text-muted">\${{ tier.price }}/season</div>
-                    </div>
-                  </div>
-                  <ul class="list-unstyled small">
+            <div class="col-md-6 col-lg-3">
+              <div class="card tier-card h-100 text-center">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="icon-badge mx-auto mb-3"><i [class]="tier.icon"></i></div>
+                  <h3 class="h5 fw-bold display-font">{{ tier.name }}</h3>
+                  <div class="display-6 fw-bold my-2">\${{ tier.price }}</div>
+                  <ul class="list-unstyled small text-start flex-grow-1">
                     @for (perk of tier.perks; track perk) {
                       <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>{{ perk }}</li>
                     }
                   </ul>
-                  <a routerLink="/contact" class="btn w-100" [class]="tier.featured ? 'btn-navy' : 'btn-outline-navy'">
-                    Become a {{ tier.name }} sponsor
+                  <a [href]="donateUrl" target="_blank" rel="noopener" class="btn btn-navy w-100 mt-2">
+                    Give \${{ tier.price }} on PayPal
                   </a>
                 </div>
               </div>
             </div>
           }
         </div>
+        <p class="small text-muted text-center mt-4 mb-0">
+          After giving, <a routerLink="/contact">send us your name and tier</a> so we can get your
+          recognition, gear, and tickets headed your way.
+        </p>
       </div>
     </section>
 
     <section class="py-5 bg-panther-coal">
       <div class="container text-center">
-        <div class="section-kicker mb-2">Our sponsors</div>
-        <h2 class="display-font h1 mb-3">Businesses that back the Panthers</h2>
-        <p class="mb-4" style="color: var(--panther-muted);">
-          Sponsor logos and links will be featured here — and on game programs, banners, and social media.
-          Your business could headline this section.
+        <div class="section-kicker mb-2">Business sponsors</div>
+        <h2 class="display-font h1 mb-3">Put your business in front of Panther fans</h2>
+        <p class="mb-4 mx-auto" style="color: var(--panther-muted); max-width: 42rem;">
+          Banners at the stadium, game-day program ads, PA shout-outs, and featured-sponsor
+          nights — we'll build a package that fits your business. Sponsor logos and links
+          will be featured right here.
         </p>
         <div class="row justify-content-center gy-3 mb-4">
           @for (slot of [1, 2, 3, 4]; track slot) {
@@ -80,41 +77,7 @@ import { RouterLink } from '@angular/router';
   `,
 })
 export class SponsorsComponent {
-  tiers = [
-    {
-      name: 'Black',
-      price: 250,
-      icon: 'fa-solid fa-medal',
-      featured: false,
-      perks: [
-        'Business name on the season program',
-        'Social media shout-out',
-        'Sponsor certificate for your storefront',
-      ],
-    },
-    {
-      name: 'Gold',
-      price: 750,
-      icon: 'fa-solid fa-trophy',
-      featured: true,
-      perks: [
-        'Everything in Black',
-        'Banner displayed at all home games',
-        'Logo + link on this website',
-        'PA announcement every home game',
-      ],
-    },
-    {
-      name: 'Platinum Panther',
-      price: 1500,
-      icon: 'fa-solid fa-gem',
-      featured: false,
-      perks: [
-        'Everything in Gold',
-        'Premier banner placement at the stadium',
-        'Featured sponsor of one home game',
-        'Recognition at the season banquet',
-      ],
-    },
-  ];
+  donateUrl = DONATE_URL;
+  touchdownClubIntro = TOUCHDOWN_CLUB_INTRO;
+  tiers = TOUCHDOWN_CLUB_TIERS;
 }

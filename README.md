@@ -19,10 +19,12 @@ deployed to GitHub Pages at [topshots.me](https://topshots.me).
 
 - **Contact emails** — `src/app/pages/contact.component.ts` and the footer in
   `src/app/app.component.html` use `…@centurypanthersfootball.org` placeholders.
-- **Schedule** — `src/app/pages/schedule.component.ts` ships a TBA slate.
 - **Social links** — footer + contact page link to `#` until real profiles are added.
-- **Membership/sponsor pricing** — sample tiers in `get-involved.component.ts`
-  and `sponsors.component.ts`.
+
+Real data lives in dedicated modules: external links (donate, team calendar,
+official school pages) in `src/app/site-links.ts`, and the Touchdown Club
+support tiers in `src/app/touchdown-club.ts`. The schedule page embeds the
+team's public Google Calendar.
 
 ## Development
 
