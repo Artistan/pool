@@ -313,6 +313,16 @@ body {
 }
 
 /* ---------- schedule table ---------- */
+.table-schedule th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.table-schedule th.sortable:hover {
+  color: var(--panther-white);
+}
+
 .table-schedule th {
   background-color: var(--panther-navy);
   color: var(--panther-silver);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SponsorsSupportersComponent } from '../components/sponsors-supporters.component';
 import {
@@ -6,8 +6,14 @@ import {
   GAME_EVENTS,
   GAME_INFO,
   PROGRAM_DATA_IS_PLACEHOLDER,
+  Player,
   ROSTER,
 } from '../program-data';
+
+type SortKey = 'number' | 'name' | 'position' | 'grade';
+
+/** class order: seniors first when descending through the season roster */
+const GRADE_RANK: Record<string, number> = { 'Sr.': 4, 'Jr.': 3, 'So.': 2, 'Fr.': 1 };
 
 @Component({
   selector: 'app-program',
@@ -75,24 +81,42 @@ import {
           <div class="section-kicker mb-2">The team</div>
           <h2 class="display-font h1">2026 Panthers Roster</h2>
         </div>
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-6 col-lg-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input type="search" class="form-control" placeholder="Search name, position, number..."
+                     aria-label="Search the roster"
+                     [value]="search()" (input)="search.set($any($event.target).value)">
+            </div>
+          </div>
+        </div>
         <div class="table-responsive">
           <table class="table table-schedule table-striped align-middle bg-white rounded overflow-hidden">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Position</th>
-                <th scope="col">Grade</th>
+                @for (col of columns; track col.key) {
+                  <th scope="col" class="sortable" role="button" tabindex="0"
+                      [attr.aria-sort]="sortKey() === col.key ? (sortDir() === 1 ? 'ascending' : 'descending') : null"
+                      (click)="sortBy(col.key)" (keydown.enter)="sortBy(col.key)">
+                    {{ col.label }}
+                    <i class="fa-solid ms-1"
+                       [class]="sortKey() === col.key ? (sortDir() === 1 ? 'fa-sort-up' : 'fa-sort-down') : 'fa-sort'"
+                       [style.opacity]="sortKey() === col.key ? 1 : 0.4"></i>
+                  </th>
+                }
               </tr>
             </thead>
             <tbody>
-              @for (player of roster; track $index) {
+              @for (player of visibleRoster(); track player.name + player.number) {
                 <tr>
                   <td class="fw-bold">{{ player.number }}</td>
                   <td>{{ player.name }}</td>
                   <td>{{ player.position }}</td>
                   <td>{{ player.grade }}</td>
                 </tr>
+              } @empty {
+                <tr><td colspan="4" class="text-center text-muted py-4">No players match "{{ search() }}"</td></tr>
               }
             </tbody>
           </table>
@@ -131,6 +155,48 @@ export class ProgramComponent {
   isPlaceholder = PROGRAM_DATA_IS_PLACEHOLDER;
   game = GAME_INFO;
   events = GAME_EVENTS;
-  roster = ROSTER;
   coaches = COACHES;
+
+  columns: { key: SortKey; label: string }[] = [
+    { key: 'number', label: '#' },
+    { key: 'name', label: 'Name' },
+    { key: 'position', label: 'Position' },
+    { key: 'grade', label: 'Grade' },
+  ];
+
+  search = signal('');
+  sortKey = signal<SortKey>('number');
+  sortDir = signal<1 | -1>(1);
+
+  visibleRoster = computed(() => {
+    const term = this.search().trim().toLowerCase();
+    const key = this.sortKey();
+    const dir = this.sortDir();
+    const filtered = ROSTER.filter(
+      (p) =>
+        !term ||
+        [String(p.number), p.name, p.position, p.grade].some((v) => v.toLowerCase().includes(term)),
+    );
+    return filtered.sort((a, b) => this.compare(a, b, key) * dir);
+  });
+
+  sortBy(key: SortKey): void {
+    if (this.sortKey() === key) {
+      this.sortDir.update((d) => (d === 1 ? -1 : 1));
+    } else {
+      this.sortKey.set(key);
+      this.sortDir.set(1);
+    }
+  }
+
+  private compare(a: Player, b: Player, key: SortKey): number {
+    switch (key) {
+      case 'number':
+        return Number(a.number) - Number(b.number);
+      case 'grade':
+        return (GRADE_RANK[b.grade] ?? 0) - (GRADE_RANK[a.grade] ?? 0) || a.name.localeCompare(b.name);
+      default:
+        return String(a[key]).localeCompare(String(b[key]));
+    }
+  }
 }
