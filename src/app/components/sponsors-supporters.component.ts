@@ -107,7 +107,8 @@ const COMMUNITY_ROWS: TierRow[] = [
           </a>
         </div>
 
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 mt-5">
+        <!-- id="thank-you": the $50 tier promises digital recognition on the website Thank You section -->
+        <div id="thank-you" class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 mt-5">
           <h3 class="tier-row-heading h5 mb-0"><i class="fa-solid fa-people-group me-2"></i>Panthers Community Support</h3>
           <a [href]="communityZeffyUrl" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">
             Become a Sponsor <i class="fa-solid fa-arrow-up-right-from-square fa-xs ms-1"></i>

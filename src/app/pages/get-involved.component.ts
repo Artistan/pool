@@ -67,13 +67,18 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
         </p>
         <div class="row gy-4 justify-content-center mb-4">
           @for (tier of corporateTiers; track tier.name) {
-            <div class="col-6 col-lg-3">
+            <div class="col-md-6 col-lg-3">
               <div class="card card-panther bg-panther-coal h-100 text-center">
-                <div class="card-body p-4">
+                <div class="card-body p-4 d-flex flex-column">
                   <div class="icon-badge mx-auto mb-3"><i [class]="tier.icon"></i></div>
                   <h3 class="h5 fw-bold display-font mb-1">{{ tier.name }}</h3>
                   <div class="fs-4 fw-bold text-silver">\${{ tier.price.toLocaleString() }}</div>
-                  <div class="small" style="color: var(--panther-muted);">per season</div>
+                  <div class="small mb-3" style="color: var(--panther-muted);">per season</div>
+                  <ul class="list-unstyled small text-start flex-grow-1 mb-0">
+                    @for (perk of tier.perks; track perk) {
+                      <li class="mb-2"><i class="fa-solid fa-circle-check text-silver me-2"></i>{{ perk }}</li>
+                    }
+                  </ul>
                 </div>
               </div>
             </div>
@@ -87,6 +92,10 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
             <i class="fa-solid fa-envelope me-2"></i>Ask about benefits
           </a>
         </div>
+        <p class="small text-center mt-3 mb-0">
+          Interested in category exclusivity, co-branded merchandise, and premium activation?
+          <a routerLink="/contact" class="fw-semibold">Ask about Panther Platinum Plus</a>.
+        </p>
       </div>
     </section>
 

@@ -17,13 +17,79 @@ export const TOUCHDOWN_CLUB_INTRO =
 
 /**
  * Corporate sponsorship tiers, matching the club's Zeffy business
- * sponsorships checkout.
+ * sponsorships checkout (pricing) with benefits from the sponsorship
+ * package sheets.
  */
-export const CORPORATE_SPONSOR_TIERS: { name: string; price: number; icon: string }[] = [
-  { name: 'Panther Bronze', price: 1500, icon: 'fa-solid fa-medal' },
-  { name: 'Panther Silver', price: 2500, icon: 'fa-solid fa-award' },
-  { name: 'Panther Gold', price: 3500, icon: 'fa-solid fa-trophy' },
-  { name: 'Panther Platinum', price: 4000, icon: 'fa-solid fa-gem' },
+export const CORPORATE_SPONSOR_TIERS: SupportTier[] = [
+  {
+    name: 'Panther Bronze',
+    price: 1500,
+    icon: 'fa-solid fa-medal',
+    perks: [
+      'Logo listing on the program sponsor page',
+      'Shared signage on the sponsor board',
+      'Recognition on the team website sponsor page',
+    ],
+  },
+  {
+    name: 'Panther Silver',
+    price: 2500,
+    icon: 'fa-solid fa-award',
+    perks: [
+      'Shared category representation',
+      'One tagged social media post during the season',
+      'Logo listing in the program sponsor roll call',
+      'PA mention at one home game',
+      'Shared signage on the sponsor board',
+    ],
+  },
+  {
+    name: 'Panther Gold',
+    price: 3500,
+    icon: 'fa-solid fa-trophy',
+    perks: [
+      'Shared category representation',
+      'One tagged social media post per month in season',
+      '⅛-page full-color ad or logo in the program',
+      'PA mentions at two home games',
+      'Standard signage placement',
+      'Fan Info Table collateral distribution',
+      'Two tickets to one home game',
+    ],
+  },
+  {
+    name: 'Panther Platinum',
+    price: 4000,
+    icon: 'fa-solid fa-gem',
+    perks: [
+      'Shared category representation',
+      'Two tagged social media posts per month in season',
+      '¼-page full-color ad in the season program',
+      'PA mention at every home game',
+      'Standard signage placement',
+      'Concourse table at one home game',
+      'Two tickets to three home games',
+    ],
+  },
+];
+
+/** Benefit-by-tier comparison chart (Sponsors page). */
+export interface ComparisonRow {
+  benefit: string;
+  platinum: string;
+  gold: string;
+  silver: string;
+  bronze: string;
+}
+
+export const CORPORATE_COMPARISON: ComparisonRow[] = [
+  { benefit: 'Category rights', platinum: 'Shared', gold: 'Shared', silver: 'Shared', bronze: 'Shared' },
+  { benefit: 'Social media posts', platinum: '2 / month', gold: '1 / month', silver: '1 / season', bronze: 'Website only' },
+  { benefit: 'Program ad', platinum: '¼-page full-color', gold: '⅛-page or logo', silver: 'Logo listing', bronze: 'Logo listing' },
+  { benefit: 'Game day PA mentions', platinum: 'Every home game', gold: 'Two games', silver: 'One game', bronze: '—' },
+  { benefit: 'Signage', platinum: 'Standard', gold: 'Standard', silver: 'Shared board', bronze: 'Shared board' },
+  { benefit: 'Activation', platinum: 'Concourse table (1 game)', gold: 'Fan Info collateral', silver: '—', bronze: '—' },
+  { benefit: 'VIP tickets', platinum: 'Two to three games', gold: 'Two to one game', silver: '—', bronze: '—' },
 ];
 
 export const TOUCHDOWN_CLUB_TIERS: SupportTier[] = [
@@ -32,9 +98,9 @@ export const TOUCHDOWN_CLUB_TIERS: SupportTier[] = [
     price: 50,
     icon: 'fa-solid fa-house-flag',
     perks: [
-      'Panther Decal',
-      'Digital recognition on website',
-      'Personalized thank-you note',
+      'Official 2026 Panther Decal',
+      'Digital recognition in the website Thank You section',
+      'Personalized thank-you note from the club',
     ],
   },
   {
@@ -43,7 +109,7 @@ export const TOUCHDOWN_CLUB_TIERS: SupportTier[] = [
     icon: 'fa-solid fa-paw',
     perks: [
       'Includes $50 tier benefits, plus:',
-      'Name in Game Day Program',
+      'Name in the Game Day Program — Community Backers section',
       'Two Century Panther water bottles',
     ],
   },
