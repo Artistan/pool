@@ -44,7 +44,12 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
             </div>
           }
         </div>
-        <p class="small text-muted text-center mt-4 mb-0">
+        <div class="text-center mt-4">
+          <a [href]="zeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
+            <i class="fa-solid fa-heart me-2"></i>Become a Community Support Sponsor
+          </a>
+        </div>
+        <p class="small text-muted text-center mt-3 mb-0">
           Tier checkout runs through Zeffy, our secure fundraising platform.
           Questions? <a routerLink="/contact">Contact the club</a>.
         </p>

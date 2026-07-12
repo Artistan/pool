@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BUSINESS_SPONSORS_ZEFFY_URL } from '../site-links';
+import { BUSINESS_SPONSORS_ZEFFY_URL, TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
 
 interface SampleBox {
   /** 'logo' renders a greyed-out fake corporation mark; 'placeholder' renders the your-logo/your-name slot. */
@@ -78,7 +78,12 @@ const COMMUNITY_ROWS: TierRow[] = [
           </p>
         </div>
 
-        <h3 class="tier-row-heading h5 mb-3"><i class="fa-solid fa-handshake me-2"></i>Corporate Sponsors</h3>
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <h3 class="tier-row-heading h5 mb-0"><i class="fa-solid fa-handshake me-2"></i>Corporate Sponsors</h3>
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">
+            Become a Sponsor <i class="fa-solid fa-arrow-up-right-from-square fa-xs ms-1"></i>
+          </a>
+        </div>
         @for (row of corporateRows; track row.title) {
           <div class="small fw-semibold text-muted text-uppercase mb-2">{{ row.title }}</div>
           <div class="row g-3 mb-4" [class]="row.rowCols">
@@ -99,7 +104,12 @@ const COMMUNITY_ROWS: TierRow[] = [
           </div>
         }
 
-        <h3 class="tier-row-heading h5 mb-3 mt-5"><i class="fa-solid fa-people-group me-2"></i>Panthers Community Support</h3>
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 mt-5">
+          <h3 class="tier-row-heading h5 mb-0"><i class="fa-solid fa-people-group me-2"></i>Panthers Community Support</h3>
+          <a [href]="communityZeffyUrl" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm">
+            Become a Sponsor <i class="fa-solid fa-arrow-up-right-from-square fa-xs ms-1"></i>
+          </a>
+        </div>
         @for (row of communityRows; track row.title) {
           <div class="small fw-semibold text-muted text-uppercase mb-2">{{ row.title }}</div>
           <div class="row g-3 mb-4" [class]="row.rowCols">
@@ -130,4 +140,5 @@ export class SponsorsSupportersComponent {
   corporateRows = CORPORATE_ROWS;
   communityRows = COMMUNITY_ROWS;
   businessZeffyUrl = BUSINESS_SPONSORS_ZEFFY_URL;
+  communityZeffyUrl = TOUCHDOWN_CLUB_ZEFFY_URL;
 }
