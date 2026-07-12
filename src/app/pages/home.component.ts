@@ -178,7 +178,7 @@ export class HomeComponent {
     {
       icon: 'fa-solid fa-clipboard-list',
       title: 'Game-day volunteers needed',
-      text: 'Spirit wear table and game-ops crews for every home game. Sign up on the Get Involved page.',
+      text: 'Field painting, team meals, and setup crews for every home game. Sign up on the Get Involved page.',
     },
   ];
 }

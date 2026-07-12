@@ -150,19 +150,9 @@ export class GetInvolvedComponent {
       text: 'Help plan, cook, or host weekly pre-game team meals for 100+ hungry Panthers.',
     },
     {
-      icon: 'fa-solid fa-link',
-      title: 'Chain gang & game ops',
-      text: 'Work the sidelines, run the clock, or staff the gate on Friday nights.',
-    },
-    {
-      icon: 'fa-solid fa-shirt',
-      title: 'Spirit wear table',
-      text: 'Sell Panther gear at games and school events. Cash box provided, sales pitch optional.',
-    },
-    {
-      icon: 'fa-solid fa-camera',
-      title: 'Media & photos',
-      text: 'Shoot game photos or clip film highlights for players, families, and recruiting.',
+      icon: 'fa-solid fa-paint-roller',
+      title: 'Field Painting Crew',
+      text: 'Stripe the lines, paint the hashes, and lay down the Panther midfield before home games.',
     },
     {
       icon: 'fa-solid fa-truck',
