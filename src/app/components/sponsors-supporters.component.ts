@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { BUSINESS_SPONSORS_ZEFFY_URL, TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
 
 interface SampleBox {
@@ -65,7 +64,6 @@ const COMMUNITY_ROWS: TierRow[] = [
 
 @Component({
   selector: 'app-sponsors-supporters',
-  imports: [RouterLink],
   template: `
     <section class="py-5">
       <div class="container">
@@ -103,6 +101,11 @@ const COMMUNITY_ROWS: TierRow[] = [
             }
           </div>
         }
+        <div class="text-center mb-4">
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
+            <i class="fa-solid fa-handshake me-2"></i>Become a Corporate Sponsor
+          </a>
+        </div>
 
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 mt-5">
           <h3 class="tier-row-heading h5 mb-0"><i class="fa-solid fa-people-group me-2"></i>Panthers Community Support</h3>
@@ -124,12 +127,9 @@ const COMMUNITY_ROWS: TierRow[] = [
           </div>
         }
 
-        <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
-          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy">
-            <i class="fa-solid fa-handshake me-2"></i>Become a corporate sponsor
-          </a>
-          <a routerLink="/get-involved" class="btn btn-outline-navy">
-            <i class="fa-solid fa-heart me-2"></i>Join the Touchdown Club
+        <div class="text-center mt-1">
+          <a [href]="communityZeffyUrl" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
+            <i class="fa-solid fa-heart me-2"></i>Become a Community Support Sponsor
           </a>
         </div>
       </div>
