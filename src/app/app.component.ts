@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { DONATE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
+import { CONTACT_EMAIL, DONATE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
   donateUrl = DONATE_URL;
   calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
+  contactEmail = CONTACT_EMAIL;
 
   navLinks = [
     { path: '/', label: 'Home', exact: true },

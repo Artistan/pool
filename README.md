@@ -17,8 +17,6 @@ deployed to GitHub Pages at [topshots.me](https://topshots.me).
 
 ## Placeholders to customize
 
-- **Contact emails** — `src/app/pages/contact.component.ts` and the footer in
-  `src/app/app.component.html` use `…@centurypanthersfootball.org` placeholders.
 - **Social links** — footer + contact page link to `#` until real profiles are added.
 
 Real data lives in dedicated modules: external links (donate, team calendar,

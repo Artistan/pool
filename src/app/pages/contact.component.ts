@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CONTACT_EMAIL } from '../site-links';
 
 @Component({
   selector: 'app-contact',
@@ -51,28 +52,28 @@ import { Component } from '@angular/core';
   `,
 })
 export class ContactComponent {
-  // Replace these addresses/links with the club's real contact points.
+  // One club inbox — subject lines route the conversation.
   channels = [
     {
       icon: 'fa-solid fa-envelope',
       title: 'General',
       text: 'Membership, meetings, and everything else.',
       cta: 'Email the club',
-      href: 'mailto:boosters@centurypanthersfootball.org',
+      href: `mailto:${CONTACT_EMAIL}`,
     },
     {
       icon: 'fa-solid fa-handshake',
       title: 'Sponsorship',
       text: 'Packets, tiers, and custom partnerships.',
       cta: 'Email sponsorship',
-      href: 'mailto:sponsors@centurypanthersfootball.org',
+      href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Sponsorship inquiry')}`,
     },
     {
       icon: 'fa-solid fa-clipboard-list',
       title: 'Volunteering',
       text: 'Concessions, meals, and game-day crews.',
       cta: 'Email volunteers',
-      href: 'mailto:volunteer@centurypanthersfootball.org',
+      href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Volunteer signup')}`,
     },
     {
       icon: 'fa-brands fa-facebook',
