@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-interface Game {
-  week: number;
-  date: string;
-  opponent: string;
-  home: boolean;
-  time: string;
-  result?: string;
-}
+import { OFFICIAL_FOOTBALL_PAGE_URL, OFFICIAL_SCHEDULE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site-links';
 
 @Component({
   selector: 'app-schedule',
@@ -16,7 +8,7 @@ interface Game {
   template: `
     <section class="hero-panther py-5">
       <div class="container hero-inner">
-        <div class="section-kicker mb-2">2026 Season</div>
+        <div class="section-kicker mb-2">Team Calendar</div>
         <h1 class="display-5 display-font mb-2">Game <span class="text-silver">Schedule</span></h1>
         <p class="lead mb-0">Pack the stands. Wear the navy &amp; silver.</p>
       </div>
@@ -24,57 +16,35 @@ interface Game {
 
     <section class="py-5">
       <div class="container">
-        <div class="alert alert-warning small d-flex flex-wrap align-items-center gap-2" role="alert">
-          <span>
-            <i class="fa-solid fa-triangle-exclamation me-2"></i>
-            Placeholder schedule — kickoff times and opponents will be updated when the official
-            2026 slate is announced. For live game info, check the school's official pages:
-          </span>
-          <span class="d-flex gap-2">
-            <a class="btn btn-navy btn-sm" href="https://www.centurypanthersathletics.com/sports/boys-football/schedule"
-               target="_blank" rel="noopener">
-              <i class="fa-solid fa-calendar-days me-1"></i>Official schedule
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <p class="small text-muted mb-0" style="max-width: 34rem;">
+            Games, practices, and team events straight from the Panther Football calendar.
+            Subscribe to get every update on your phone automatically.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-navy btn-sm" [href]="calendarSubscribeUrl" target="_blank" rel="noopener">
+              <i class="fa-solid fa-calendar-plus me-1"></i>Subscribe in Google Calendar
             </a>
-            <a class="btn btn-outline-navy btn-sm" href="https://www.centurypanthers.org/page/show/5060449?subseason=614343&amp;tab=content"
-               target="_blank" rel="noopener">
+            <a class="btn btn-outline-navy btn-sm" [href]="officialFootballPageUrl" target="_blank" rel="noopener">
               <i class="fa-solid fa-football me-1"></i>RCHS football page
             </a>
-          </span>
+            <a class="btn btn-outline-navy btn-sm" [href]="officialScheduleUrl" target="_blank" rel="noopener">
+              <i class="fa-solid fa-calendar-days me-1"></i>Athletics schedule
+            </a>
+          </div>
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-schedule table-striped align-middle">
-            <thead>
-              <tr>
-                <th scope="col">Week</th>
-                <th scope="col">Date</th>
-                <th scope="col">Opponent</th>
-                <th scope="col">Location</th>
-                <th scope="col">Kickoff</th>
-                <th scope="col">Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (game of games; track game.week) {
-                <tr>
-                  <td class="fw-bold">{{ game.week }}</td>
-                  <td>{{ game.date }}</td>
-                  <td class="fw-semibold">{{ game.opponent }}</td>
-                  <td>
-                    <span class="badge" [class]="game.home ? 'badge-home' : 'badge-away'">
-                      <i class="fa-solid me-1" [class]="game.home ? 'fa-house' : 'fa-bus'"></i>
-                      {{ game.home ? 'Home' : 'Away' }}
-                    </span>
-                  </td>
-                  <td>{{ game.time }}</td>
-                  <td class="text-muted">{{ game.result || '—' }}</td>
-                </tr>
-              }
-            </tbody>
-          </table>
+        <!-- Live team calendar (public Google Calendar embed, agenda view) -->
+        <div class="ratio ratio-4x3 rounded border shadow-sm mb-5" style="max-height: 640px;">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&mode=AGENDA&showPrint=0&showCalendars=0&title=RCHS%20Panthers%20Football&src=Y2VudHVyeXBhbnRoZXJmYkBnbWFpbC5jb20&src=aXI4aHUwcTlibGxxOGRwbmZsbWxiMmhpaG03cTRncmZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dTRra3ZpcjBoZjFqMmNrOG04MnJwa3RraWhscTFvdW5AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=NWgyMWcwOGw1Y3JvMzU0c2pvOWs3NGhrZDZqbGQ3Ym9AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bzRua2xxaDlxaGt1MXVqNHQ5OGNxbzJuZmNwMmc2OGZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bmI0ZG8ycGQydmVyZ2FxM2poaDgwNDNjZ2VtZWxtOWRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20"
+            style="border: 0;"
+            title="RCHS Panthers Football team calendar"
+            loading="lazy">
+          </iframe>
         </div>
 
-        <div class="row gy-4 mt-4">
+        <div class="row gy-4">
           <div class="col-md-6">
             <div class="card card-panther h-100">
               <div class="card-body">
@@ -104,16 +74,7 @@ interface Game {
   `,
 })
 export class ScheduleComponent {
-  // Placeholder slate — replace with the official schedule when released.
-  games: Game[] = [
-    { week: 1, date: 'Fri, Aug 28', opponent: 'TBA — Season Opener', home: true, time: '7:00 PM' },
-    { week: 2, date: 'Fri, Sep 4', opponent: 'TBA', home: false, time: '7:00 PM' },
-    { week: 3, date: 'Fri, Sep 11', opponent: 'TBA', home: true, time: '7:00 PM' },
-    { week: 4, date: 'Fri, Sep 18', opponent: 'TBA', home: false, time: '7:00 PM' },
-    { week: 5, date: 'Fri, Sep 25', opponent: 'TBA — Homecoming', home: true, time: '7:00 PM' },
-    { week: 6, date: 'Fri, Oct 2', opponent: 'TBA', home: false, time: '7:00 PM' },
-    { week: 7, date: 'Fri, Oct 9', opponent: 'TBA — Senior Night', home: true, time: '7:00 PM' },
-    { week: 8, date: 'Wed, Oct 14', opponent: 'TBA', home: false, time: '7:00 PM' },
-    { week: 9, date: 'Wed, Oct 21', opponent: 'Section Playoffs begin', home: true, time: 'TBA' },
-  ];
+  calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
+  officialFootballPageUrl = OFFICIAL_FOOTBALL_PAGE_URL;
+  officialScheduleUrl = OFFICIAL_SCHEDULE_URL;
 }

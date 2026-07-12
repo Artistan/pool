@@ -14,3 +14,10 @@ export const OFFICIAL_FOOTBALL_PAGE_URL =
 
 export const OFFICIAL_SCHEDULE_URL =
   'https://www.centurypanthersathletics.com/sports/boys-football/schedule';
+
+/**
+ * "Add to Google Calendar" link for the team calendars — opens Google
+ * Calendar and offers to subscribe to all of them.
+ */
+export const TEAM_CALENDAR_SUBSCRIBE_URL =
+  'https://calendar.google.com/calendar/u/0/r?cid=centurypantherfb@gmail.com&cid=ir8hu0q9bllq8dpnflmlb2hihm7q4grf@import.calendar.google.com&cid=u4kkvir0hf1j2ck8m82rpktkihlq1oun@import.calendar.google.com&cid=5h21g08l5cro354sjo9k74hkd6jld7bo@import.calendar.google.com&cid=o4nklqh9qhku1uj4t98cqo2nfcp2g68f@import.calendar.google.com&cid=nb4do2pd2vergaq3jhh8043cgemelm9d@import.calendar.google.com';
