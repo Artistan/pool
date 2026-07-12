@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { CONTACT_EMAIL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
+import { CONTACT_EMAIL, FACEBOOK_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-links';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
   calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
   contactEmail = CONTACT_EMAIL;
+  facebookUrl = FACEBOOK_URL;
 
   navLinks = [
     { path: '/', label: 'Home', exact: true },

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CONTACT_EMAIL } from '../site-links';
+import { CONTACT_EMAIL, FACEBOOK_URL } from '../site-links';
 
 @Component({
   selector: 'app-contact',
@@ -79,8 +79,8 @@ export class ContactComponent {
       icon: 'fa-brands fa-facebook',
       title: 'Social',
       text: 'Follow along for scores, photos, and news.',
-      cta: 'Find us online',
-      href: '#',
+      cta: 'Follow on Facebook',
+      href: FACEBOOK_URL,
     },
   ];
 }

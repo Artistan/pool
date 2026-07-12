@@ -12,6 +12,9 @@ export const DONATE_URL =
 /** The Touchdown Club's email for all inquiries. */
 export const CONTACT_EMAIL = 'centurypantherfootball@gmail.com';
 
+/** The club's Facebook page. */
+export const FACEBOOK_URL = 'https://www.facebook.com/centurypantherfootball';
+
 /**
  * Zeffy checkout for the Touchdown Club support tiers (from the flyer's QR
  * code). The utm_source tags checkouts that came from this website.

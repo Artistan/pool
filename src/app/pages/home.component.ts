@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FACEBOOK_URL } from '../site-links';
 
 @Component({
   selector: 'app-home',
@@ -91,6 +92,32 @@ import { RouterLink } from '@angular/router';
       </div>
     </section>
 
+    <!-- Latest from Facebook -->
+    <section class="py-5 bg-panther-silver">
+      <div class="container text-center">
+        <div class="section-kicker mb-2">Latest news</div>
+        <h2 class="display-font h1 mb-3">From our Facebook</h2>
+        <p class="mx-auto mb-4" style="max-width: 40rem;">
+          Scores, photos, announcements, and everything Panther football — as it happens.
+        </p>
+        <div class="d-flex justify-content-center mb-4">
+          <!-- Facebook Page Plugin: always shows the page's latest posts -->
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcenturypantherfootball&tabs=timeline&width=500&height=640&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+            width="500" height="640"
+            style="border: none; overflow: hidden; max-width: 100%; border-radius: 0.75rem; box-shadow: 0 0.5rem 1.25rem rgba(11, 31, 58, 0.15);"
+            scrolling="no" frameborder="0" allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Century Panther Football on Facebook"
+            loading="lazy">
+          </iframe>
+        </div>
+        <a [href]="facebookUrl" target="_blank" rel="noopener" class="btn btn-navy">
+          <i class="fa-brands fa-facebook me-2"></i>Follow Century Panther Football
+        </a>
+      </div>
+    </section>
+
     <!-- Get involved CTA -->
     <section class="py-5">
       <div class="container">
@@ -134,6 +161,8 @@ import { RouterLink } from '@angular/router';
   `,
 })
 export class HomeComponent {
+  facebookUrl = FACEBOOK_URL;
+
   stats = [
     { value: '100+', label: 'Players supported' },
     { value: '50+', label: 'Volunteer families' },
