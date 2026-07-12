@@ -24,10 +24,22 @@ interface Game {
 
     <section class="py-5">
       <div class="container">
-        <div class="alert alert-warning small" role="alert">
-          <i class="fa-solid fa-triangle-exclamation me-2"></i>
-          Placeholder schedule — kickoff times and opponents will be updated when the official
-          2026 slate is announced.
+        <div class="alert alert-warning small d-flex flex-wrap align-items-center gap-2" role="alert">
+          <span>
+            <i class="fa-solid fa-triangle-exclamation me-2"></i>
+            Placeholder schedule — kickoff times and opponents will be updated when the official
+            2026 slate is announced. For live game info, check the school's official pages:
+          </span>
+          <span class="d-flex gap-2">
+            <a class="btn btn-navy btn-sm" href="https://www.centurypanthersathletics.com/sports/boys-football/schedule"
+               target="_blank" rel="noopener">
+              <i class="fa-solid fa-calendar-days me-1"></i>Official schedule
+            </a>
+            <a class="btn btn-outline-navy btn-sm" href="https://www.centurypanthers.org/page/show/5060449?subseason=614343&amp;tab=content"
+               target="_blank" rel="noopener">
+              <i class="fa-solid fa-football me-1"></i>RCHS football page
+            </a>
+          </span>
         </div>
 
         <div class="table-responsive">
