@@ -51,7 +51,7 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
         </div>
         <p class="small text-muted text-center mt-3 mb-0">
           Tier checkout runs through Zeffy, our secure fundraising platform.
-          The Century Panther Touchdown Club is an official 501(c) non-profit organization —
+          The Century Panther Touchdown Club is an official 501(c)(3) non-profit organization —
           at the time of your donation you can opt in to receive a receipt for your generous donation.
           Questions? <a routerLink="/contact">Contact the club</a>.
         </p>
@@ -99,7 +99,7 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
           <a routerLink="/contact" class="fw-semibold">Ask about Panther Platinum Plus</a>.
         </p>
         <p class="small text-center mb-0">
-          Sponsorships support an official 501(c) non-profit organization — opt in at checkout
+          Sponsorships support an official 501(c)(3) non-profit organization — opt in at checkout
           to receive a receipt for your contribution.
         </p>
       </div>
@@ -147,7 +147,7 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
           <i class="fa-solid fa-heart me-2"></i>Donate with PayPal
         </a>
         <p class="small text-muted mt-3 mb-0">
-          The Century Panther Touchdown Club is an official 501(c) non-profit organization.
+          The Century Panther Touchdown Club is an official 501(c)(3) non-profit organization.
           At the time of your donation you can opt in to receive a receipt for your generous donation!
         </p>
       </div>

@@ -63,7 +63,7 @@ import { CORPORATE_COMPARISON } from '../touchdown-club';
             <a routerLink="/contact" class="fw-semibold">Ask about Panther Platinum Plus</a>.
           </p>
           <p class="small mb-0">
-            The Century Panther Touchdown Club is an official 501(c) non-profit organization —
+            The Century Panther Touchdown Club is an official 501(c)(3) non-profit organization —
             opt in at checkout to receive a receipt for your contribution.
           </p>
         </div>
