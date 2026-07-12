@@ -71,7 +71,7 @@ export class ContactComponent {
     {
       icon: 'fa-solid fa-clipboard-list',
       title: 'Volunteering',
-      text: 'Concessions, meals, and game-day crews.',
+      text: 'Team meals, spirit wear, and game-day crews.',
       cta: 'Email volunteers',
       href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Volunteer signup')}`,
     },

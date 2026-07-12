@@ -47,8 +47,8 @@ import { OFFICIAL_FOOTBALL_PAGE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site
               <div class="card-body">
                 <h2 class="h5 fw-bold"><i class="fa-solid fa-house text-navy me-2"></i>Home game day</h2>
                 <p class="small text-muted mb-0">
-                  Gates open 90 minutes before kickoff. The Touchdown Club runs concessions and the
-                  spirit wear table at every home game — stop by and say hi, or better yet,
+                  Gates open 90 minutes before kickoff. The Touchdown Club runs the spirit wear
+                  table at every home game — stop by and say hi, or better yet,
                   <a routerLink="/get-involved">take a shift</a>.
                 </p>
               </div>

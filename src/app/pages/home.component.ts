@@ -99,12 +99,12 @@ import { RouterLink } from '@angular/router';
             <div class="section-kicker mb-2">Get involved</div>
             <h2 class="display-font h1 mb-3">It takes a Panther village</h2>
             <p class="text-muted">
-              Every concession stand shift, every team dinner, every sponsorship dollar goes
+              Every volunteer shift, every team dinner, every sponsorship dollar goes
               straight back to our players and coaches. However you can help, there's a spot for you.
             </p>
             <ul class="list-unstyled">
               <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Join the Touchdown Club — support tiers start at $50</li>
-              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Volunteer for concessions, team meals, and game-day operations</li>
+              <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Volunteer for team meals, spirit wear, and game-day operations</li>
               <li class="mb-2"><i class="fa-solid fa-circle-check text-navy me-2"></i>Sponsor the program through your business</li>
             </ul>
             <a routerLink="/get-involved" class="btn btn-navy mt-2">
@@ -176,9 +176,9 @@ export class HomeComponent {
       text: 'New Panther gear drops for the season — order through the club at any home game.',
     },
     {
-      icon: 'fa-solid fa-burger',
-      title: 'Concessions volunteers needed',
-      text: 'Home games need 8 volunteers per shift. Sign up on the Get Involved page.',
+      icon: 'fa-solid fa-clipboard-list',
+      title: 'Game-day volunteers needed',
+      text: 'Spirit wear table and game-ops crews for every home game. Sign up on the Get Involved page.',
     },
   ];
 }

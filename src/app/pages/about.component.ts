@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BOARD_MEMBERS } from '../club-board';
 
 @Component({
   selector: 'app-about',
@@ -42,12 +43,12 @@ import { RouterLink } from '@angular/router';
                   position is open to any member — no experience required, just Panther pride.
                 </p>
                 <ul class="list-group list-group-flush">
-                  @for (role of boardRoles; track role.title) {
+                  @for (member of board; track member.title) {
                     <li class="list-group-item d-flex align-items-center gap-3 px-0">
-                      <div class="icon-badge flex-shrink-0"><i [class]="role.icon"></i></div>
+                      <div class="icon-badge flex-shrink-0"><i [class]="member.icon"></i></div>
                       <div>
-                        <div class="fw-semibold">{{ role.title }}</div>
-                        <div class="small text-muted">{{ role.text }}</div>
+                        <div class="fw-semibold">{{ member.name }} <span class="text-muted fw-normal">&middot; {{ member.title }}</span></div>
+                        <div class="small text-muted">{{ member.text }}</div>
                       </div>
                     </li>
                   }
@@ -82,11 +83,5 @@ import { RouterLink } from '@angular/router';
   `,
 })
 export class AboutComponent {
-  boardRoles = [
-    { icon: 'fa-solid fa-star', title: 'President', text: 'Runs meetings and coordinates with coaches and the athletic department.' },
-    { icon: 'fa-solid fa-star-half-stroke', title: 'Vice President', text: 'Leads fundraising campaigns and sponsor relationships.' },
-    { icon: 'fa-solid fa-coins', title: 'Treasurer', text: 'Manages the budget and reports finances at every meeting.' },
-    { icon: 'fa-solid fa-pen-nib', title: 'Secretary', text: 'Keeps minutes, memberships, and communications flowing.' },
-    { icon: 'fa-solid fa-burger', title: 'Concessions Lead', text: 'Owns the stand — inventory, scheduling, and Friday-night hustle.' },
-  ];
+  board = BOARD_MEMBERS;
 }

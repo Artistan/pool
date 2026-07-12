@@ -140,11 +140,6 @@ export class GetInvolvedComponent {
 
   volunteerRoles = [
     {
-      icon: 'fa-solid fa-burger',
-      title: 'Concessions crew',
-      text: 'Grill, pour, and serve at home games. The best view in the stadium, minus the seat.',
-    },
-    {
       icon: 'fa-solid fa-utensils',
       title: 'Team meal squad',
       text: 'Help plan, cook, or host weekly pre-game team meals for 100+ hungry Panthers.',
