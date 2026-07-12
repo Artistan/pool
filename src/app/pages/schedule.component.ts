@@ -34,9 +34,9 @@ import { OFFICIAL_FOOTBALL_PAGE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site
         <!-- Live team calendar (public Google Calendar embed, agenda view) -->
         <div class="ratio ratio-4x3 rounded border shadow-sm mb-5" style="max-height: 640px;">
           <iframe
-            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&mode=AGENDA&showPrint=0&showCalendars=0&title=RCHS%20Panthers%20Football&src=Y2VudHVyeXBhbnRoZXJmYkBnbWFpbC5jb20&src=aXI4aHUwcTlibGxxOGRwbmZsbWxiMmhpaG03cTRncmZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dTRra3ZpcjBoZjFqMmNrOG04MnJwa3RraWhscTFvdW5AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=NWgyMWcwOGw1Y3JvMzU0c2pvOWs3NGhrZDZqbGQ3Ym9AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bzRua2xxaDlxaGt1MXVqNHQ5OGNxbzJuZmNwMmc2OGZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bmI0ZG8ycGQydmVyZ2FxM2poaDgwNDNjZ2VtZWxtOWRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20"
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&mode=AGENDA&showPrint=0&showCalendars=0&title=Century%20Panther%20Football&src=Y2VudHVyeXBhbnRoZXJmYkBnbWFpbC5jb20&src=aXI4aHUwcTlibGxxOGRwbmZsbWxiMmhpaG03cTRncmZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dTRra3ZpcjBoZjFqMmNrOG04MnJwa3RraWhscTFvdW5AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=NWgyMWcwOGw1Y3JvMzU0c2pvOWs3NGhrZDZqbGQ3Ym9AaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bzRua2xxaDlxaGt1MXVqNHQ5OGNxbzJuZmNwMmc2OGZAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bmI0ZG8ycGQydmVyZ2FxM2poaDgwNDNjZ2VtZWxtOWRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20"
             style="border: 0;"
-            title="RCHS Panthers Football team calendar"
+            title="Century Panther Football team calendar"
             loading="lazy">
           </iframe>
         </div>
@@ -47,7 +47,7 @@ import { OFFICIAL_FOOTBALL_PAGE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from '../site
               <div class="card-body">
                 <h2 class="h5 fw-bold"><i class="fa-solid fa-house text-navy me-2"></i>Home game day</h2>
                 <p class="small text-muted mb-0">
-                  Gates open 90 minutes before kickoff. The booster club runs concessions and the
+                  Gates open 90 minutes before kickoff. The Touchdown Club runs concessions and the
                   spirit wear table at every home game — stop by and say hi, or better yet,
                   <a routerLink="/get-involved">take a shift</a>.
                 </p>

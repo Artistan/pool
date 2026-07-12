@@ -16,17 +16,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have the booster club title', () => {
+  it('should have the Touchdown Club title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('RCHS Panthers Football Boosters');
+    expect(app.title).toEqual('Century Panther Touchdown Club');
   });
 
-  it('should render the Panthers brand in the navbar', () => {
+  it('should render the Touchdown Club brand in the navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Panthers');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Touchdown');
   });
 
   it('should render all six nav links', () => {

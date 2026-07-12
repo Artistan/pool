@@ -11,7 +11,7 @@ import { DONATE_URL } from '../site-links';
       <div class="container hero-inner py-lg-5">
         <div class="row align-items-center gy-4">
           <div class="col-lg-7">
-            <div class="section-kicker mb-2">RCHS Panthers Football Booster Club</div>
+            <div class="section-kicker mb-2">Century Panther Touchdown Club</div>
             <h1 class="display-4 display-font mb-3">
               Friday nights are <span class="text-silver">better together.</span>
             </h1>
@@ -29,8 +29,8 @@ import { DONATE_URL } from '../site-links';
             </div>
           </div>
           <div class="col-lg-5 text-center">
-            <img src="panther-logo.png" alt="RCHS Panthers growling panther head logo" class="hero-logo">
-            <div class="display-font h4 mt-3 mb-0">RCHS <span class="text-silver">Panthers</span> Football</div>
+            <img src="panther-logo.png" alt="Century Panther Touchdown Club logo" class="hero-logo">
+            <div class="display-font h4 mt-3 mb-0">Century <span class="text-silver">Panther</span> Touchdown Club</div>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@ export class HomeComponent {
   announcements = [
     {
       icon: 'fa-solid fa-calendar-check',
-      title: 'Monthly booster meeting',
+      title: 'Monthly club meeting',
       text: 'First Tuesday of each month, 7:00 PM in the school commons — everyone welcome.',
     },
     {

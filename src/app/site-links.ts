@@ -9,7 +9,7 @@
 export const DONATE_URL =
   'https://www.paypal.com/donate?token=_56EnR6YyAFSD_a9AR2zM_71l1B_XWonL7rLsOLxvBcz5tYXBmcMLPeDVAluFk0MBFziImI5WO8kOQkw';
 
-/** The booster club's email for all inquiries. */
+/** The Touchdown Club's email for all inquiries. */
 export const CONTACT_EMAIL = 'centurypantherfootball@gmail.com';
 
 /** Zeffy checkout for the Touchdown Club support tiers (from the flyer's QR code). */

@@ -7,11 +7,11 @@ import { AboutComponent } from './pages/about.component';
 import { ContactComponent } from './pages/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'RCHS Panthers Football Booster Club' },
-  { path: 'schedule', component: ScheduleComponent, title: 'Schedule | RCHS Panthers Boosters' },
-  { path: 'get-involved', component: GetInvolvedComponent, title: 'Get Involved | RCHS Panthers Boosters' },
-  { path: 'sponsors', component: SponsorsComponent, title: 'Sponsors | RCHS Panthers Boosters' },
-  { path: 'about', component: AboutComponent, title: 'About | RCHS Panthers Boosters' },
-  { path: 'contact', component: ContactComponent, title: 'Contact | RCHS Panthers Boosters' },
+  { path: '', component: HomeComponent, title: 'Century Panther Touchdown Club' },
+  { path: 'schedule', component: ScheduleComponent, title: 'Schedule | Century Panther Touchdown Club' },
+  { path: 'get-involved', component: GetInvolvedComponent, title: 'Get Involved | Century Panther Touchdown Club' },
+  { path: 'sponsors', component: SponsorsComponent, title: 'Sponsors | Century Panther Touchdown Club' },
+  { path: 'about', component: AboutComponent, title: 'About | Century Panther Touchdown Club' },
+  { path: 'contact', component: ContactComponent, title: 'Contact | Century Panther Touchdown Club' },
   { path: '**', redirectTo: '' },
 ];

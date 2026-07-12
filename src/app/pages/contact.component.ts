@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from '../site-links';
     <section class="hero-panther py-5">
       <div class="container hero-inner">
         <div class="section-kicker mb-2">Contact</div>
-        <h1 class="display-5 display-font mb-2">Talk to <span class="text-silver">the Boosters</span></h1>
+        <h1 class="display-5 display-font mb-2">Talk to <span class="text-silver">the Touchdown Club</span></h1>
         <p class="lead mb-0">Questions, ideas, memberships, sponsorships — we answer them all.</p>
       </div>
     </section>
@@ -37,7 +37,7 @@ import { CONTACT_EMAIL } from '../site-links';
               <div class="card-body p-4">
                 <h2 class="h5 fw-bold mb-3"><i class="fa-solid fa-location-dot text-navy me-2"></i>Find us on game day</h2>
                 <p class="small text-muted mb-2">
-                  Look for the booster club tent at the home-side gate — memberships, spirit wear,
+                  Look for the Touchdown Club tent at the home-side gate — memberships, spirit wear,
                   and volunteer sign-ups at every home game.
                 </p>
                 <p class="small text-muted mb-0">

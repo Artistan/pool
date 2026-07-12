@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
             <div class="section-kicker mb-2">Our mission</div>
             <h2 class="display-font h2 mb-3">For the players. For the program.</h2>
             <p class="text-muted">
-              The Century Panthers Football Booster Club is a volunteer organization of parents,
+              The Century Panther Touchdown Club is a volunteer organization of parents,
               alumni, and community members. We raise funds and rally volunteers so that coaches
               can coach and players can play — without worrying about what the budget covers.
             </p>

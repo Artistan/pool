@@ -9,7 +9,7 @@ import { CONTACT_EMAIL, DONATE_URL, TEAM_CALENDAR_SUBSCRIBE_URL } from './site-l
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'RCHS Panthers Football Boosters';
+  title = 'Century Panther Touchdown Club';
   currentYear = new Date().getFullYear();
   donateUrl = DONATE_URL;
   calendarSubscribeUrl = TEAM_CALENDAR_SUBSCRIBE_URL;
