@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BUSINESS_SPONSORS_ZEFFY_URL, DONATE_URL, TOUCHDOWN_CLUB_ZEFFY_URL } from '../site-links';
-import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
+import { CORPORATE_COMPARISON, CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } from '../touchdown-club';
 
 @Component({
   selector: 'app-get-involved',
@@ -105,6 +105,49 @@ import { CORPORATE_SPONSOR_TIERS, TOUCHDOWN_CLUB_INTRO, TOUCHDOWN_CLUB_TIERS } f
       </div>
     </section>
 
+    <!-- Corporate package comparison -->
+    <section class="py-5 bg-panther-coal">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="section-kicker mb-2">Compare packages</div>
+          <h2 class="display-font h1">Corporate Sponsorship Benefits</h2>
+          <p class="mx-auto" style="color: var(--panther-muted); max-width: 42rem;">
+            Every tier puts your brand in front of Panther Nation — here's what each
+            level includes across the season.
+          </p>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-schedule table-striped align-middle bg-white rounded overflow-hidden">
+            <thead>
+              <tr>
+                <th scope="col">Benefit</th>
+                <th scope="col">Platinum $4,000</th>
+                <th scope="col">Gold $3,500</th>
+                <th scope="col">Silver $2,500</th>
+                <th scope="col">Bronze $1,500</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of comparison; track row.benefit) {
+                <tr>
+                  <td class="fw-semibold">{{ row.benefit }}</td>
+                  <td>{{ row.platinum }}</td>
+                  <td>{{ row.gold }}</td>
+                  <td>{{ row.silver }}</td>
+                  <td>{{ row.bronze }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center mt-4">
+          <a [href]="businessZeffyUrl" target="_blank" rel="noopener" class="btn btn-silver btn-lg">
+            <i class="fa-solid fa-handshake me-2"></i>Choose your package
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Specialty & in-kind partnerships -->
     <section class="py-5">
       <div class="container">
@@ -205,6 +248,7 @@ export class GetInvolvedComponent {
   touchdownClubIntro = TOUCHDOWN_CLUB_INTRO;
   tiers = TOUCHDOWN_CLUB_TIERS;
   corporateTiers = CORPORATE_SPONSOR_TIERS;
+  comparison = CORPORATE_COMPARISON;
 
   volunteerRoles = [
     {
