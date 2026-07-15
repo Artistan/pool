@@ -70,50 +70,6 @@ import { CORPORATE_COMPARISON } from '../touchdown-club';
       </div>
     </section>
 
-    <!-- Specialty & in-kind partnerships -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6">
-            <div class="section-kicker mb-2">Specialty partnerships</div>
-            <h2 class="display-font h2 mb-3">Panther Fuel Partner</h2>
-            <p class="text-muted">
-              Not every sponsorship is a banner. Our Panther Fuel partnership keeps
-              athletes fed and the community fired up — and it can be built from cash,
-              in-kind product, or a mix that fits your business.
-            </p>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="fa-solid fa-fire text-navy me-2"></i>Home-game community tailgates</li>
-              <li class="mb-2"><i class="fa-solid fa-utensils text-navy me-2"></i>Weekly pre-game team pasta feeds</li>
-              <li class="mb-2"><i class="fa-solid fa-apple-whole text-navy me-2"></i>Healthy snack packs for away-game travel</li>
-            </ul>
-            <p class="small text-muted">
-              Partners get logo placement, game-day announcements, social media shout-outs,
-              and recognition in team communications all season long.
-            </p>
-            <a routerLink="/contact" class="btn btn-navy">
-              <i class="fa-solid fa-envelope me-2"></i>Build a partnership with us
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <div class="card card-panther">
-              <div class="card-body p-4">
-                <h3 class="h5 fw-bold mb-3"><i class="fa-solid fa-basket-shopping text-navy me-2"></i>Perfect for</h3>
-                <p class="small text-muted mb-2">
-                  Grocery stores, restaurants, and food suppliers who want repeat, meaningful
-                  exposure across the whole season — from the tailgate lot to the team bus.
-                </p>
-                <p class="small text-muted mb-0">
-                  Flexible scope: sponsor the full season or a single piece, with contributions
-                  sized to your capacity.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Support the club -->
     <section class="py-5 bg-panther-coal">
       <div class="container text-center">
